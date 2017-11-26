@@ -36,10 +36,17 @@ public class ControlerLogin extends HttpServlet {
         
         //System.out.print(unHotel.DameElDepartamento(unHotel.buscarPorNombreDepartamento("limpiesa")));
         //request.("Home.jsp").forward(request, response);
+        /*
         String saludo = this.unHotel.DameElCliente(34897363).getApellido();
         request.setAttribute("nombre", saludo);
-        request.getRequestDispatcher("index.jsp").forward(request, response);
+        String usuario=request.getParameter("username");
+        int pass = Integer.parseInt(request.getParameter("password"));
+        System.out.print(pass);
+        */
+        System.err.println("aaaaaaaaaaaaaandaaaaaaaaaaaaa");
+        request.getRequestDispatcher("Home_jsp.jsp").forward(request, response);
         
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

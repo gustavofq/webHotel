@@ -13,7 +13,6 @@
     </head>
     <body>
         <form method="post" action="login.jsp">
-            
             <center>
             <table border="1" width="30%" cellpadding="3">
                 <thead>
@@ -23,9 +22,7 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Nombre de Usuario
-                        
-                            
+                        <td>Nombre de Usuario        
                         </td>
                         <td><input type="text" name="uname" value="" /></td>
                     </tr>
@@ -43,7 +40,10 @@
                 </tbody>
             </table>
             </center>
-            <h1>  <%= (String)request.getAttribute("nombre")%> </h1>
+            <h1>  <%= request.getAttribute("user")%> </h1>
+            <footer>
+            <h1> Todos los derechos reservados -Quintana Gustavo F. </h1>
+        </footer>
         </form>
     </body>
 </html>
