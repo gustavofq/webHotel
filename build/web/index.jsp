@@ -6,44 +6,44 @@
         <title>JSP Example</title>
         <link rel="stylesheet" type="text/css" href="CSS.css"> 
         <style type="text/css"> 
-            body { 
-            color: purple; 
-            background-color: #d8da3d } 
+            body{
+                padding: 0px 0px;
+            }
+            ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            width: 200px;
+            background-color: #f1f1f1;
+            }
+
+            li a {
+            display: block;
+            color: #000;
+            padding: 8px 16px;
+            text-decoration: none;
+            }
+
+            li a:hover {
+            background-color: #555;
+            color: white;
+            }
+            
+            footer{
+                margin: 0;
+            color: #000;
+            padding: 650px 16px;
+            text-decoration: none;
+            text-align: center;
+            }
         </style> 
     </head>
     <body>
-        <form method="post" action="login.jsp">
-            <center>
-            <table border="1" width="30%" cellpadding="3">
-                <thead>
-                    <tr>
-                        <th colspan="2">Ingresar</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Nombre de Usuario        
-                        </td>
-                        <td><input type="text" name="uname" value="" /></td>
-                    </tr>
-                    <tr>
-                        <td>Password</td>
-                        <td><input type="password" name="pass" value="" /></td>
-                    </tr>
-                    <tr>
-                        <td><input type="submit" value="Ingresar" /></td>
-                        <td><input type="reset" value="Restaurar" /></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">Yet Not Registered!! <a href="reg.jsp">Register Here</a></td>
-                    </tr>
-                </tbody>
-            </table>
-            </center>
-            <h1>  <%= request.getAttribute("user")%> </h1>
-            <footer>
-            <h1> Todos los derechos reservados -Quintana Gustavo F. </h1>
-        </footer>
-        </form>
+        <ul>
+            <li><a href="default.asp">Presupuestar</a></li>
+            <li><a href="news.asp">Reservas</a></li>
+            <li><a href="contact.asp">Cuenta</a></li>
+        </ul>
+        <footer>Todos los derechos reservados Facundo Enriquez T. - Quintana Gustavo F.</footer>
     </body>
 </html>
