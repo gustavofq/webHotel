@@ -40,9 +40,9 @@
     </head>
     <body>
         <ul>
-            <li><a href="default.asp">Presupuestar</a></li>
-            <li><a href="news.asp">Reservas</a></li>
-            <li><a href="contact.asp">Cuenta</a></li>
+            <li><a href="Presupuesto.jsp">Presupuesto</a></li>
+            <li><a href="Reserva.jsp">Reservas</a></li>
+            <li><a href="Cuenta.jsp">Cuenta</a></li>
         </ul>
         <footer>Todos los derechos reservados Facundo Enriquez T. - Quintana Gustavo F.</footer>
     </body>

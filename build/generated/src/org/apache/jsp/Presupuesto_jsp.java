@@ -4,7 +4,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 
-public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class Presupuesto_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -42,17 +42,15 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       _jspx_resourceInjector = (org.glassfish.jsp.api.ResourceInjector) application.getAttribute("com.sun.appserv.jsp.resource.injector");
 
       out.write("\n");
+      out.write("\n");
+      out.write("\n");
       out.write("<!DOCTYPE html>\n");
       out.write("<html>\n");
       out.write("    <head>\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
-      out.write("        <title>JSP Example</title>\n");
-      out.write("        <link rel=\"stylesheet\" type=\"text/css\" href=\"CSS.css\"> \n");
-      out.write("        <style type=\"text/css\"> \n");
-      out.write("            body{\n");
-      out.write("                padding: 0px 0px;\n");
-      out.write("            }\n");
-      out.write("            ul {\n");
+      out.write("        <title>Presupuestar</title>\n");
+      out.write("        <style>\n");
+      out.write("             ul {\n");
       out.write("            list-style-type: none;\n");
       out.write("            margin: 0;\n");
       out.write("            padding: 0;\n");
@@ -77,19 +75,24 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            color: #000;\n");
       out.write("            padding: 650px 16px;\n");
       out.write("            text-decoration: none;\n");
-      out.write("            text-align: center;\n");
-      out.write("            }\n");
-      out.write("        </style> \n");
+      out.write("            text-align: center;  \n");
+      out.write("        </style>\n");
+      out.write("            \n");
       out.write("    </head>\n");
       out.write("    <body>\n");
       out.write("        <ul>\n");
-      out.write("            <li><a href=\"Presupuesto.jsp\">Presupuesto</a></li>\n");
+      out.write("            <li><a href=\"index.jsp\">Inicio</a></li>\n");
       out.write("            <li><a href=\"Reserva.jsp\">Reservas</a></li>\n");
       out.write("            <li><a href=\"contact.asp\">Cuenta</a></li>\n");
       out.write("        </ul>\n");
-      out.write("        <footer>Todos los derechos reservados Facundo Enriquez T. - Quintana Gustavo F.</footer>\n");
       out.write("    </body>\n");
-      out.write("</html>");
+      out.write("</html>\n");
+      out.write("<!-- \n");
+      out.write("a) Realizar un presupuesto.\n");
+      out.write("    i) Consultar disponibilidad de las habitaciones según las fechas.\n");
+      out.write("    ii) Consultar servicios adicionales.\n");
+      out.write("    iii) Ver precio final\n");
+      out.write("-->");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
         out = _jspx_out;

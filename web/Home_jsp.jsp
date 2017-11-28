@@ -64,11 +64,14 @@
                 </label>
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>   
             </form>
-            <h1><%= 
-                (String)request.getAttribute("contraseña")+
-                (String)request.getAttribute("user") 
-                
-                %></h1>
+            
         </div>
     </body>
 </html>
+
+<!--
+(b)Registrarse en la aplicación.
+    (i) Añadir cliente en el registro.
+        (1) Introducir nombre único de usuario y contraseña.
+        (2) Introducir datos personales.
+-->
