@@ -285,6 +285,11 @@ public class Hotel {
         unCliente.setContraseña(contraseña);
         miPersistencia.EditarCliente(unCliente);
     }
+    
+    public void modificarCliente(Cliente oldCliente, Cliente newCliente) throws Exception{
+        misClientes.remove(oldCliente);
+        miPersistencia.EditarCliente(newCliente);
+    }
 
     public void borrarCliente(Cliente unCliente) throws Exception {
         misClientes.remove(unCliente);
@@ -308,7 +313,20 @@ public class Hotel {
         return existe;
     }
     
-    
+    public int buscarPorUsuario(String user){
+        Iterator it = this.misClientes.iterator();
+        Cliente unCliente = new Cliente();
+        int dni= -1;
+        boolean existe = false;
+        while((it.hasNext())&&(existe!=true)){
+            unCliente = (Cliente) it.next();
+            if(unCliente.getUsuario().equals(user)){
+                dni = unCliente.getDni();
+                existe = true;
+            }
+        }
+        return dni;
+    }
     
     //DEPARTAMENTO
     

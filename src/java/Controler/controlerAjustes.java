@@ -1,12 +1,15 @@
+package Controler;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Controler;
 
+import Logica.Cliente;
 import Logica.Hotel;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.servlet.ServletException;
@@ -18,8 +21,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author maquinola
  */
-public class ControlerLogin extends HttpServlet {
-        Hotel unHotel = new Hotel();
+public class controlerAjustes extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,21 +35,23 @@ public class ControlerLogin extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, Exception {
         response.setContentType("text/html;charset=UTF-8");
-        
-        
-        //System.out.print(unHotel.DameElDepartamento(unHotel.buscarPorNombreDepartamento("limpiesa")));
-        //request.("Home.jsp").forward(request, response);
-        /*
-        String saludo = this.unHotel.DameElCliente(34897363).getApellido();
-        request.setAttribute("nombre", saludo);
-        String usuario=request.getParameter("username");
-        int pass = Integer.parseInt(request.getParameter("password"));
-        System.out.print(pass);
-        */
-        //System.err.println("aaaaaaaaaaaaaandaaaaaaaaaaaaa");
-        request.getRequestDispatcher("Home_jsp.jsp").forward(request, response);
-        
-
+            /*Hotel unHotel = new Hotel();
+            Cliente oldCliente = new Cliente();
+            Cliente newCliente = new Cliente();
+            oldCliente = unHotel.DameElCliente(Integer.parseInt(request.getParameter("username")));
+            newCliente = oldCliente;*/
+            /*if(request.getParameter("nombre")!= null){
+                newCliente.setNombre((String)request.getParameter("nombre"));
+            }
+            if(request.getParameter("apellido") != null){
+                newCliente.setApellido((String)request.getParameter("apellido"));
+            }
+            if (request.getParameter("tarjeta")!= null){
+                newCliente.setTarjetaDeCredito(Double.parseDouble(request.getParameter("tarjeta")));
+            }*/
+            //unHotel.modificarCliente(oldCliente, newCliente);*/
+            
+            request.getRequestDispatcher("index.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -62,11 +66,13 @@ public class ControlerLogin extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+      
         try {
             processRequest(request, response);
         } catch (Exception ex) {
-            Logger.getLogger(ControlerLogin.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(controlerAjustes.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
     }
 
     /**
@@ -83,7 +89,7 @@ public class ControlerLogin extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (Exception ex) {
-            Logger.getLogger(ControlerLogin.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(controlerAjustes.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

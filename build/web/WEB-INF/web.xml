@@ -4,19 +4,24 @@
         <servlet-name>ControlerLogin</servlet-name>
         <servlet-class>Controler.ControlerLogin</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>controlerAjustes</servlet-name>
+        <servlet-class>Controler.controlerAjustes</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ControlerLogin</servlet-name>
         <url-pattern>/ControlerLogin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>controlerAjustes</servlet-name>
+        <url-pattern>/controlerAjustes</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
-    
     <welcome-file-list>
         <welcome-file>ControlerLogin</welcome-file>
     </welcome-file-list>
-    
-    
 </web-app>

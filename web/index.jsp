@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page session="true" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -9,6 +10,7 @@
             body{
                 padding: 0px 0px;
             }
+            
             ul {
             list-style-type: none;
             margin: 0;
@@ -19,7 +21,7 @@
 
             li a {
             display: block;
-            color: #000;
+            color: #111;
             padding: 8px 16px;
             text-decoration: none;
             }
@@ -30,7 +32,7 @@
             }
             
             footer{
-                margin: 0;
+            margin: 0;
             color: #000;
             padding: 650px 16px;
             text-decoration: none;
@@ -40,9 +42,10 @@
     </head>
     <body>
         <ul>
+            <li><a><%=request.getParameter("username")%></a></li>
             <li><a href="Presupuesto.jsp">Presupuesto</a></li>
             <li><a href="Reserva.jsp">Reservas</a></li>
-            <li><a href="Cuenta.jsp">Cuenta</a></li>
+            <li><a href="Ajustes.jsp">Cuenta de <%=request.getParameter("username")%></a></li>
         </ul>
         <footer>Todos los derechos reservados Facundo Enriquez T. - Quintana Gustavo F.</footer>
     </body>

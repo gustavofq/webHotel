@@ -59,19 +59,20 @@
         </style>
     </head>
     <body>
-        <h2>Gestionar cuenta</h2>
+        <h2>Gestionar contraseña</h2>
+        <h1>Gestiona Reserva</h1>
         <ul>
+            <li><a><%=request.getParameter("username")%></a></li>
             <li><a href="index.jsp">Inicio</a></li>
-            <li><a href="Reserva.jsp">Reservas</a></li>
-            <li><a href="Presupuesto.jsp"></a></li>
+            <li><a href="Presupuesto.jsp">Reservas</a></li>
+            <li><a href="Cuenta.jsp">Cuenta</a></li>
         </ul>
-        <footer>Todos los derechos reservados Facundo Enriquez T. - Quintana Gustavo F.</footer>
         <div class="wrapper">
             <form class="form-signin" action="ControlerHome" method="post">       
                 <h2 class="form-signin-heading">Modificar</h2>
-                <h3>Usuario</h3><input type="text" class="form-control" name="username" placeholder="Nuevo Usuario" required="" autofocus="" />
-                <h3>Contraseña</h3><input type="password" class="form-control" name="password" placeholder="Vieja password" required=""/>
-                <h3>Contraseña</h3><input type="password" class="form-control" name="password" placeholder="Nuevo password" required=""/>
+                <h2>Usuario</h3><input type="text" class="form-control" name="username" placeholder="Nuevo Usuario" required="" autofocus="" />
+                <h2>Contraseña</h3><input type="password" class="form-control" name="password" placeholder="Vieja password" required=""/>
+                <h2>Contraseña</h3><input type="password" class="form-control" name="password" placeholder="Nuevo password" required=""/>
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Cambiar</button>   
             </form>
         </div>

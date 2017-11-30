@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page session="true" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -62,9 +63,12 @@
                 <label class="checkbox">
                     <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Remember me
                 </label>
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>   
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>  
             </form>
-            
+            <%if(request.getAttribute("mensaje")!= null){%>
+                <script>alert("<%=request.getAttribute("mensaje")%>");</script>
+                <% request.setAttribute("mensaje",null);%>
+            <%}%>
         </div>
     </body>
 </html>

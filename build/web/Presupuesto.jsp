@@ -42,6 +42,7 @@
     </head>
     <body>
         <ul>
+            <li><a><%=request.getParameter("username")%></a></li>
             <li><a href="index.jsp">Inicio</a></li>
             <li><a href="Reserva.jsp">Reservas</a></li>
             <li><a href="Cuenta.jsp">Cuenta</a></li>
