@@ -14,7 +14,7 @@
             <li><a href="Presupuesto.jsp"></a></li>
         </ul>
         <div class="wrapper">
-            <form class="form-signin" action="controlerAjustes" method="post">       
+            <form class="form-signin" action="ControlerAjustes" method="post">       
                 <h2 class="form-signin-heading">Modificar</h2>
                 <h2>Nombre</h3><input type="text" class="form-control" name="nombre"/>
                 <h2>apellido</h3><input type="text" class="form-control" name="apellido" />

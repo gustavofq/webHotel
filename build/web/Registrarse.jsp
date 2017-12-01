@@ -12,6 +12,14 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <form>
+            Nombre:<input type="text" name="nombre">
+            Apellido:<im
+            N° Tarjeta:
+            Usuario:
+            Contraseña:
+            Repetir Contraseña:
+            
+        </form>
     </body>
 </html>

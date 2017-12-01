@@ -30,10 +30,10 @@ public class ControlerHome extends HttpServlet {
             if(unHotel.existeUsuario(user, pass)){
                 HttpSession unaSession = request.getSession();
                 unaSession.setAttribute("usename", user);
-                request.getRequestDispatcher("index.jsp").forward(request, response);
+                request.getRequestDispatcher("Principal.jsp").forward(request, response);
             }else {
                 request.setAttribute("mensaje", "Usuario o Contraseña incorrecto.");
-                request.getRequestDispatcher("Home_jsp.jsp").forward(request, response);
+                request.getRequestDispatcher("Login.jsp").forward(request, response);
             }  
         }  
     }

@@ -6,7 +6,7 @@
     </servlet>
     <servlet>
         <servlet-name>controlerAjustes</servlet-name>
-        <servlet-class>Controler.controlerAjustes</servlet-class>
+        <servlet-class>Controler.ControlerAjustes</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ControlerLogin</servlet-name>
