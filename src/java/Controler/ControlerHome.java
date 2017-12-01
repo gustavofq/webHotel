@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Controler;
 
 import Logica.Hotel;
@@ -15,10 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-/**
- *
- * @author maquinola
- */
+
 @WebServlet(name = "ControlerHome", urlPatterns = {"/ControlerHome"})
 public class ControlerHome extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {

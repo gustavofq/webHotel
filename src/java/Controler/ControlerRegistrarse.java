@@ -1,18 +1,34 @@
+
 package Controler;
 
+import Logica.Hotel;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class ControlerAjustes extends HttpServlet {
-    
+
+public class ControlerRegistrarse extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException, Exception {
         response.setContentType("text/html;charset=UTF-8");
-        request.getRequestDispatcher("index.jsp").forward(request, response);
+        Hotel unHotel = new Hotel();
+        String nombre = request.getParameter("nombre");
+        String apellido = request.getParameter("apellido");
+        int dni = Integer.parseInt(request.getParameter("dni"));
+        double tarjeta = Double.parseDouble(request.getParameter("tarjeta"));
+        String user = request.getParameter("user");
+        String pass = request.getParameter("password");
+        if(unHotel.verificarUsuario(user) == false){
+            unHotel.altaCliente(dni, nombre, apellido, tarjeta, user, pass);
+            request.getRequestDispatcher("Login.jsp").forward(request, response);
+        }else{
+            request.getRequestDispatcher("Registrarse.jsp").forward(request, response);
+            request.setAttribute("mensaje", "el usuario ya existe.");
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -27,13 +43,11 @@ public class ControlerAjustes extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-      
         try {
             processRequest(request, response);
         } catch (Exception ex) {
-            Logger.getLogger(ControlerAjustes.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ControlerRegistrarse.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
     }
 
     /**
@@ -50,7 +64,7 @@ public class ControlerAjustes extends HttpServlet {
         try {
             processRequest(request, response);
         } catch (Exception ex) {
-            Logger.getLogger(ControlerAjustes.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ControlerRegistrarse.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

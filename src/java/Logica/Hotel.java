@@ -313,6 +313,19 @@ public class Hotel {
         return existe;
     }
     
+    public boolean verificarUsuario(String user){
+        boolean existe = false;
+        Cliente unCliente = new Cliente();
+        Iterator it = this.misClientes.iterator();
+        while ((it.hasNext()) && (existe == false)){
+            unCliente = (Cliente) it.next();
+            if( (unCliente.getUsuario().equals(user))){
+                existe = true;
+            }
+        }
+        return existe;
+    }
+    
     public int buscarPorUsuario(String user){
         Iterator it = this.misClientes.iterator();
         Cliente unCliente = new Cliente();
