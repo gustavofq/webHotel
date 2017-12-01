@@ -5,6 +5,34 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Ajustes</title>
+        <style>
+             ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            width: 200px;
+            background-color: #f1f1f1;
+            }
+
+            li a {
+            display: block;
+            color: #000;
+            padding: 8px 16px;
+            text-decoration: none;
+            }
+
+            li a:hover {
+            background-color: #555;
+            color: white;
+            }
+            
+            footer{
+                margin: 0;
+            color: #000;
+            padding: 650px 16px;
+            text-decoration: none;
+            text-align: center;  
+        </style>
     </head>
     <body>
         <h2>Gestionar cuenta</h2>

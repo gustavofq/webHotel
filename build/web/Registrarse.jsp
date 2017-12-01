@@ -7,6 +7,19 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Registrarse</title>
         <link rel="stylesheet" type="text/css" href="CSS.css">
+        <script>
+            function validarPass(){
+                var pass1 = formulario.pw1.value;
+                var pass2 = formulario.pw2.value;
+                if(pass1 !== pass2){
+                    alert("El password no coincide");
+                    document.getElementById("pw1").focus();
+                }else{
+                    formulario.
+                }
+            }
+            
+        </script>
         <style type="text/css"> 
             body {
                 background: #eee !important;	
@@ -56,17 +69,22 @@
     </head>
     <body>
         <div class="wrapper">
-            <form class="form-signin" action="ControlerRegistrarse" method="post">       
+            <form id="formulario" class="form-signin" action="ControlerRegistrarse" method="post">       
                 <h2 class="form-signin-heading">Ingresar</h2>
                 <h5>Nombre</h5><input type="text" class="form-control" name="nombre" placeholder="ej: Pedro" required="" autofocus="">
                 <h5>Apellido</h5><input type="text" class="form-control" name="apellido" placeholder="ej: Diaz" required=""/>
                 <h5>DNI</h5><input type="text" class="form-control" name="dni" placeholder="ej: 12345678" required=""/>
                 <h5>N° tarjeta</h5><input type="text" class="form-control" name="tarjeta" placeholder="ej: 548418574" required=""/>
                 <h5>Usuario</h5><input type="text" class="form-control" name="user" placeholder="ej: pedroD" required=""/>
-                <h5>Password</h5><input type="password" class="form-control" name="password" placeholder="Password" required=""/>
-                <h5>Password</h5><input type="password" class="form-control" name="password2" placeholder="Repetir Password" required=""/>
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Guardar</button>  
+                <h5>Password</h5><input id="pw1" type="password" class="form-control" name="password" placeholder="Password" required=""/>
+                <h5>Password</h5><input id="pw2" type="password" class="form-control" name="password2" placeholder="Repetir Password" required=""/>
+                <button class="btn btn-lg btn-primary btn-block" type="submit" onclick='validarPass()'>Guardar</button>  
             </form>
+            <%if(request.getAttribute("mensaje")!= null){%>
+                <script>alert("<%=request.getAttribute("mensaje")%>");</script>
+                <% request.setAttribute("mensaje",null);%>
+            <%}%>
+            
         </div>
     </body>
 </html>

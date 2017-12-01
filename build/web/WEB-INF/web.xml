@@ -12,6 +12,10 @@
         <servlet-name>ControlerRegistrarse</servlet-name>
         <servlet-class>Controler.ControlerRegistrarse</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ControlerCambiarPass</servlet-name>
+        <servlet-class>Controler.ControlerCambiarPass</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ControlerLogin</servlet-name>
         <url-pattern>/ControlerLogin</url-pattern>
@@ -23,6 +27,10 @@
     <servlet-mapping>
         <servlet-name>ControlerRegistrarse</servlet-name>
         <url-pattern>/ControlerRegistrarse</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControlerCambiarPass</servlet-name>
+        <url-pattern>/ControlerCambiarPass</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

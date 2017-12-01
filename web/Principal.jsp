@@ -4,7 +4,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Example</title>
+        <title>Principal</title>
         <link rel="stylesheet" type="text/css" href="CSS.css"> 
         <style type="text/css"> 
             body{
@@ -38,11 +38,31 @@
             text-decoration: none;
             text-align: center;
             }
+            
+            header{
+                display: line;
+                text-align: center;
+                font: fantasy;
+                background-color: #138496;
+                padding: auto;
+                font-size: 25px; 
+                
+            }
+            header ul{
+                align-content: flex-end;
+            }
         </style> 
     </head>
     <body>
+        <header>
+            <a><%= session.getAttribute("seccion")%></a>
+            <ul>
+                <li><a href="Ajustes.jsp">Ajustes</a></li>
+                <li><a href="cambiarPass.jsp">Cambiar Contraseña</a></li>
+            </ul>
+        </header>
         <ul>
-            <li><a><%=request.getParameter("username")%></a></li>
+            <li><a><%= session.getAttribute("seccion")%></a></li>
             <li><a href="Presupuesto.jsp">Presupuesto</a></li>
             <li><a href="Reserva.jsp">Reservas</a></li>
             <li><a href="Ajustes.jsp">Cuenta de <%=request.getParameter("username")%></a></li>

@@ -59,14 +59,6 @@
         </style>
     </head>
     <body>
-        <h2>Gestionar contraseña</h2>
-        <h1>Gestiona Reserva</h1>
-        <ul>
-            <li><a><%=request.getParameter("username")%></a></li>
-            <li><a href="index.jsp">Inicio</a></li>
-            <li><a href="Presupuesto.jsp">Reservas</a></li>
-            <li><a href="Cuenta.jsp">Cuenta</a></li>
-        </ul>
         <div class="wrapper">
             <form class="form-signin" action="ControlerHome" method="post">       
                 <h2 class="form-signin-heading">Modificar</h2>

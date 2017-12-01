@@ -24,10 +24,11 @@ public class ControlerRegistrarse extends HttpServlet {
         String pass = request.getParameter("password");
         if(unHotel.verificarUsuario(user) == false){
             unHotel.altaCliente(dni, nombre, apellido, tarjeta, user, pass);
-            request.getRequestDispatcher("Login.jsp").forward(request, response);
+            request.getRequestDispatcher("Login.jsp").forward(request, response);//deberia logear directamente y pasar a Principal.jsp
         }else{
-            request.getRequestDispatcher("Registrarse.jsp").forward(request, response);
             request.setAttribute("mensaje", "el usuario ya existe.");
+            request.getRequestDispatcher("Registrarse.jsp").forward(request, response);
+            
         }
     }
 
