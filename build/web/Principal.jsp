@@ -3,55 +3,13 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <script src="js/bootstrap.min.js"></script>
         <title>Principal</title>
         <link rel="stylesheet" type="text/css" href="CSS.css"> 
-        <style type="text/css"> 
-            body{
-                padding: 0px 0px;
-            }
-            
-            ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            width: 200px;
-            background-color: #f1f1f1;
-            }
-
-            li a {
-            display: block;
-            color: #111;
-            padding: 8px 16px;
-            text-decoration: none;
-            }
-
-            li a:hover {
-            background-color: #555;
-            color: white;
-            }
-            
-            footer{
-            margin: 0;
-            color: #000;
-            padding: 650px 16px;
-            text-decoration: none;
-            text-align: center;
-            }
-            
-            header{
-                display: line;
-                text-align: center;
-                font: fantasy;
-                background-color: #138496;
-                padding: auto;
-                font-size: 25px; 
-                
-            }
-            header ul{
-                align-content: flex-end;
-            }
-        </style> 
+        <link href="css/estiloMenu.css" rel="stylesheet">
     </head>
     <body>
         <header>
@@ -61,12 +19,15 @@
                 <li><a href="cambiarPass.jsp">Cambiar Contraseña</a></li>
             </ul>
         </header>
-        <ul>
-            <li><a><%= session.getAttribute("seccion")%></a></li>
-            <li><a href="Presupuesto.jsp">Presupuesto</a></li>
-            <li><a href="Reserva.jsp">Reservas</a></li>
-            <li><a href="Ajustes.jsp">Cuenta de <%=request.getParameter("username")%></a></li>
-        </ul>
+            
+            <ul>
+                <li><a href="Presupuesto.jsp">Presupuesto</a></li>
+                <li><a href="Reserva.jsp">Reservas</a>
+                    <ul>
+                        <li><a href="ListaDeReserva.jsp">Lista de Reserva</a></li>
+                    </ul>
+                </li>
+            </ul>
         <footer>Todos los derechos reservados Facundo Enriquez T. - Quintana Gustavo F.</footer>
     </body>
 </html>

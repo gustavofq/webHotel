@@ -8,6 +8,7 @@ package Logica;
 import Persistencia.ControladoraPersistencia;
 import Persistencia.exceptions.NonexistentEntityException;
 import Visual.MenuPrincipal;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -760,6 +761,25 @@ public class Hotel {
         return miPersistencia.obtenerRHabitaciones();
     }
     
+    public List<Habitacion> verificarFecha(Calendar entrada, Calendar salida){
+        RHabitacion unaRHabitacion = new RHabitacion();
+        Iterator it = this.misRHabitaciones.iterator();
+        List<RHabitacion> candidatas = new ArrayList<>();
+        List<Habitacion> disponibles = new ArrayList<>();
+        while(it.hasNext()){
+            unaRHabitacion = (RHabitacion) it.next();
+            if(unaRHabitacion.getFechaSalida().compareTo(entrada)== -1){//(0=son iguales)(-1= el argumento es mayor )(1=el argumento es menor)
+                unaRHabitacion = (RHabitacion)it.next();
+                candidatas.add(unaRHabitacion);
+            }
+        }
+        for(RHabitacion unaHabitacion2 : candidatas){
+            if(unaRHabitacion.getFechaEntrada().compareTo(salida)== 1){
+                disponibles.add(unaHabitacion2.getUnaHabitacion());
+            }
+        }
+        return disponibles;
+    }
     
     
     //R MESAS

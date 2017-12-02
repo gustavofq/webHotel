@@ -11,25 +11,81 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Gestionar Reserva</title>
-        <link rel="stylesheet" type="text/css" href="css/estiloLogin.css">
-        
-       
+        <style>
+            body{
+                padding: 0px 0px;
+            }
+            
+            ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            width: 200px;
+            background-color: #f1f1f1;
+            }
+
+            li a {
+            display: block;
+            color: #111;
+            padding: 8px 16px;
+            text-decoration: none;
+            }
+
+            li a:hover {
+            background-color: #555;
+            color: white;
+            }
+            
+            footer{
+            margin: 0;
+            color: #000;
+            padding: 650px 16px;
+            text-decoration: none;
+            text-align: center;
+            }
+            
+            header{
+                display: line;
+                text-align: center;
+                font: fantasy;
+                background-color: #138496;
+                padding: auto;
+                font-size: 25px; 
+                
+            }
+            header ul{
+                align-content: space-around;
+            }
+            ffecha{
+                align-content: center;
+            }
+            
+        </style>
     </head>
     <body>
-<h2>Gestionar cuenta</h2>
-        <ul>
-            <li><a href="index.jsp">Inicio</a></li>
-            <li><a href="Reserva.jsp">Reservas</a></li>
-            <li><a href="Presupuesto.jsp"></a></li>
+        <header>
+            <a><%= session.getAttribute("seccion")%></a>
+            <ul>
+                <li><a href="Ajustes.jsp">Ajustes</a></li>
+                <li><a href="cambiarPass.jsp">Cambiar Contraseña</a></li>
+            </ul>
+        </header>
+        <ul class="menu">
+            <li><a href="Principal.jsp">Inicio</a></li>
+            <li><a href="Presupuesto.jsp">Presupuesto</a></li> 
         </ul>
-        <div class="wrapper">
-            <form class="form-signin" action="ControlerAjustes" method="post">       
-                <h2 class="form-signin-heading">Modificar</h2>
-                <h2>Nombre</h3><input type="text" class="form-control" name="nombre"/>
-                <h2>apellido</h3><input type="text" class="form-control" name="apellido" />
-                <h2>Número de Tarjeta</h3><input type="text" class="form-control" name="tarjeta"/>
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Cambiar</button>   
-            </form>
+        <form id="ffecha" action="ControlerReserva">
+            fecha Ingreso<input type="date" name="fechaInicio" />
+            fecha Egreso<input type="date" name="fechaFin"/>
+            <select> <!-- traer todos los tipos de habitaciones. -->
+                <option value="volvo">Volvo</option>
+                <option value="saab">Saab</option>
+                <option value="opel">Opel</option>
+                <option value="audi">Audi</option>
+            </select>
+            <button type="submit">Solicitar</button>
+        </form>
+        
     </body>
 </html>
 <!--

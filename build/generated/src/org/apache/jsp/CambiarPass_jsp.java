@@ -4,7 +4,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 
-public final class Presupuesto_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class CambiarPass_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -47,26 +47,36 @@ public final class Presupuesto_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<!DOCTYPE html>\n");
       out.write("<html>\n");
       out.write("    <head>\n");
+      out.write("        <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css\" integrity=\"sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb\" crossorigin=\"anonymous\">\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
-      out.write("        <title>Presupuestar</title>\n");
-      out.write("        <link rel=\"stylesheet\" type=\"text/css\" href=\"css/estiloLogin.css\">\n");
+      out.write("        <title>Gestionar Cuenta</title>\n");
+      out.write("        <link href=\"css/estiloMenu.css\" rel=\"stylesheet\">\n");
+      out.write("        <link href=\"css/estiloLogin.css\" rel=\"stylesheet\">\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
-      out.write("        <ul>\n");
-      out.write("            <li><a>");
+      out.write("        <header>\n");
+      out.write("            <a>");
       out.print( session.getAttribute("seccion"));
-      out.write("</a></li>\n");
-      out.write("            <li><a href=\"Principal.jsp\">Inicio</a></li>\n");
-      out.write("            <li><a href=\"Reserva.jsp\">Reservas</a></li>\n");
-      out.write("            <li><a href=\"Cuenta.jsp\">Cuenta</a></li>\n");
-      out.write("        </ul>\n");
+      out.write("</a>\n");
+      out.write("            <ul>\n");
+      out.write("                <li><a href=\"Ajustes.jsp\">Ajustes</a></li>\n");
+      out.write("                <li><a href=\"cambiarPass.jsp\">Cambiar Contraseña</a></li>\n");
+      out.write("            </ul>\n");
+      out.write("        </header>\n");
+      out.write("        <div class=\"wrapper\">\n");
+      out.write("            <form class=\"form-signin\" action=\"ControlerHome\" method=\"post\">       \n");
+      out.write("                <h2 class=\"form-signin-heading\">Modificar</h2>\n");
+      out.write("                <h2>Usuario</h3><input type=\"text\" class=\"form-control\" name=\"username\" placeholder=\"Nuevo Usuario\" required=\"\" autofocus=\"\" />\n");
+      out.write("                <h2>Contraseña</h3><input type=\"password\" class=\"form-control\" name=\"password\" placeholder=\"Vieja password\" required=\"\"/>\n");
+      out.write("                <h2>Contraseña</h3><input type=\"password\" class=\"form-control\" name=\"password\" placeholder=\"Nuevo password\" required=\"\"/>\n");
+      out.write("                <button class=\"btn btn-lg btn-primary btn-block\" type=\"submit\">Cambiar</button>   \n");
+      out.write("            </form>\n");
+      out.write("        </div>\n");
       out.write("    </body>\n");
       out.write("</html>\n");
-      out.write("<!-- \n");
-      out.write("a) Realizar un presupuesto.\n");
-      out.write("    i) Consultar disponibilidad de las habitaciones según las fechas.\n");
-      out.write("    ii) Consultar servicios adicionales.\n");
-      out.write("    iii) Ver precio final\n");
+      out.write("<!--\n");
+      out.write("c) Modificar los datos personales.\n");
+      out.write("    i) Modificar los datos introducidos cuando se registró.\n");
       out.write("-->");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){

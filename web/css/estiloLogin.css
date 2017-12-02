@@ -1,7 +1,8 @@
 
-            body {
+body {
                 /*background: #eee !important;*/
-                background-color:  #007bff;
+                background-image: url("..img/Holel.jpg");
+               /* background-color:  #007bff;*/
             }
             .wrapper {	
                 margin-top: 80px;

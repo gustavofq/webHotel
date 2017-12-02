@@ -5,49 +5,28 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Ajustes</title>
-        <style>
-             ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            width: 200px;
-            background-color: #f1f1f1;
-            }
-
-            li a {
-            display: block;
-            color: #000;
-            padding: 8px 16px;
-            text-decoration: none;
-            }
-
-            li a:hover {
-            background-color: #555;
-            color: white;
-            }
-            
-            footer{
-                margin: 0;
-            color: #000;
-            padding: 650px 16px;
-            text-decoration: none;
-            text-align: center;  
-        </style>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+        <link href="css/estiloMenu.css" rel="stylesheet">
+        <link href="css/estiloLogin.css" rel="stylesheet">
     </head>
     <body>
-        <h2>Gestionar cuenta</h2>
-        <ul>
-            <li><a href="index.jsp">Inicio</a></li>
-            <li><a href="Reserva.jsp">Reservas</a></li>
-            <li><a href="Presupuesto.jsp"></a></li>
-        </ul>
+        <header>
+            <a><%= session.getAttribute("seccion")%></a>
+            <ul>
+                <li><a href="Ajustes.jsp">Ajustes</a></li>
+                <li><a href="cambiarPass.jsp">Cambiar Contraseña</a></li>
+            </ul>
+        </header>
         <div class="wrapper">
-            <form class="form-signin" action="ControlerAjustes" method="post">       
-                <h2 class="form-signin-heading">Modificar</h2>
-                <h2>Nombre</h3><input type="text" class="form-control" name="nombre"/>
-                <h2>apellido</h3><input type="text" class="form-control" name="apellido" />
-                <h2>Número de Tarjeta</h3><input type="text" class="form-control" name="tarjeta"/>
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Cambiar</button>   
+            <form class="form-signin" action="ControlerHome" method="post">       
+                <h2 class="form-signin-heading">Editar</h2>
+                <input type="text" class="form-control" name="username" placeholder="Email Address" required="" autofocus="" />
+                <input type="password" class="form-control" name="password" placeholder="Password" required=""/>      
+                <label class="checkbox">
+                    <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Remember me
+                </label>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>  
+                <a href="Registrarse.jsp">Registrarse</a>
             </form>
         </div>
     </body>

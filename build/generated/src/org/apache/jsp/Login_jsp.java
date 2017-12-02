@@ -4,7 +4,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
 
-public final class Ajustes_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class Login_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -46,25 +46,22 @@ public final class Ajustes_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("<!DOCTYPE html>\n");
       out.write("<html>\n");
       out.write("    <head>\n");
-      out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
-      out.write("        <title>Ajustes</title>\n");
+      out.write("        <link href=\"css/bootstrap.min.css\" rel=\"stylesheet\">\n");
+      out.write("         <script src=\"js/bootstrap.min.js\"></script>\n");
       out.write("        <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css\" integrity=\"sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb\" crossorigin=\"anonymous\">\n");
-      out.write("        <link href=\"css/estiloMenu.css\" rel=\"stylesheet\">\n");
-      out.write("        <link href=\"css/estiloLogin.css\" rel=\"stylesheet\">\n");
+      out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
+      out.write("        <title>Ingresar</title>\n");
+      out.write("        <style>\n");
+      out.write("            body{\n");
+      out.write("                \n");
+      out.write("            }\n");
+      out.write("        </style>\n");
+      out.write("        <link rel=\"stylesheet\" type=\"text/css\" href=\"css/estiloLogin.css\"/>\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
-      out.write("        <header>\n");
-      out.write("            <a>");
-      out.print( session.getAttribute("seccion"));
-      out.write("</a>\n");
-      out.write("            <ul>\n");
-      out.write("                <li><a href=\"Ajustes.jsp\">Ajustes</a></li>\n");
-      out.write("                <li><a href=\"cambiarPass.jsp\">Cambiar Contraseña</a></li>\n");
-      out.write("            </ul>\n");
-      out.write("        </header>\n");
       out.write("        <div class=\"wrapper\">\n");
       out.write("            <form class=\"form-signin\" action=\"ControlerHome\" method=\"post\">       \n");
-      out.write("                <h2 class=\"form-signin-heading\">Editar</h2>\n");
+      out.write("                <h2 class=\"form-signin-heading\">Ingresar</h2>\n");
       out.write("                <input type=\"text\" class=\"form-control\" name=\"username\" placeholder=\"Email Address\" required=\"\" autofocus=\"\" />\n");
       out.write("                <input type=\"password\" class=\"form-control\" name=\"password\" placeholder=\"Password\" required=\"\"/>      \n");
       out.write("                <label class=\"checkbox\">\n");
@@ -73,9 +70,28 @@ public final class Ajustes_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                <button class=\"btn btn-lg btn-primary btn-block\" type=\"submit\">Login</button>  \n");
       out.write("                <a href=\"Registrarse.jsp\">Registrarse</a>\n");
       out.write("            </form>\n");
+      out.write("            ");
+if(request.getAttribute("mensaje")!= null){
+      out.write("\n");
+      out.write("                <script>alert(\"");
+      out.print(request.getAttribute("mensaje"));
+      out.write("\");</script>\n");
+      out.write("                ");
+ request.setAttribute("mensaje",null);
+      out.write("\n");
+      out.write("            ");
+}
+      out.write("\n");
       out.write("        </div>\n");
       out.write("    </body>\n");
       out.write("</html>\n");
+      out.write("\n");
+      out.write("<!--\n");
+      out.write("(b)Registrarse en la aplicación.\n");
+      out.write("    (i) Añadir cliente en el registro.\n");
+      out.write("        (1) Introducir nombre único de usuario y contraseña.\n");
+      out.write("        (2) Introducir datos personales.\n");
+      out.write("-->");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
         out = _jspx_out;
