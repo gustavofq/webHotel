@@ -19,7 +19,6 @@
                 <li><a href="cambiarPass.jsp">Cambiar Contraseña</a></li>
             </ul>
         </header>
-            
             <ul>
                 <li><a href="Presupuesto.jsp">Presupuesto</a></li>
                 <li><a href="Reserva.jsp">Reservas</a>
