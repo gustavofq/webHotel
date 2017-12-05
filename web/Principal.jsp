@@ -21,11 +21,13 @@
         </header>
             <ul>
                 <li><a href="Presupuesto.jsp">Presupuesto</a></li>
-                <li><a href="Reserva.jsp">Reservas</a>
+                <form action="ControlerReserva">
+                <li><a href="Reserva.jpa">Reservas</a>
                     <ul>
                         <li><a href="ListaDeReserva.jsp">Lista de Reserva</a></li>
                     </ul>
                 </li>
+                </form>
             </ul>
         <footer>Todos los derechos reservados Facundo Enriquez T. - Quintana Gustavo F.</footer>
     </body>

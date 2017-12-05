@@ -52,7 +52,7 @@ public final class Principal_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <script src=\"js/bootstrap.min.js\"></script>\n");
       out.write("        <title>Principal</title>\n");
       out.write("        <link rel=\"stylesheet\" type=\"text/css\" href=\"CSS.css\"> \n");
-      out.write("        \n");
+      out.write("        <link href=\"css/estiloMenu.css\" rel=\"stylesheet\">\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
       out.write("        <header>\n");
@@ -64,14 +64,16 @@ public final class Principal_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                <li><a href=\"cambiarPass.jsp\">Cambiar Contraseña</a></li>\n");
       out.write("            </ul>\n");
       out.write("        </header>\n");
-      out.write("            \n");
-      out.write("            <ul class=\"nav nav-pills nav-stacked\">\n");
+      out.write("            <ul>\n");
       out.write("                <li><a href=\"Presupuesto.jsp\">Presupuesto</a></li>\n");
-      out.write("                <li><a href=\"Reserva.jsp\">Reservas</a>\n");
+      out.write("                <form action=\"ControlerReserva\">\n");
+      out.write("                <li><a href=\"Reserva.jpa\">Reservas</a>\n");
+      out.write("                \n");
       out.write("                    <ul>\n");
       out.write("                        <li><a href=\"ListaDeReserva.jsp\">Lista de Reserva</a></li>\n");
       out.write("                    </ul>\n");
       out.write("                </li>\n");
+      out.write("                </form>\n");
       out.write("            </ul>\n");
       out.write("        <footer>Todos los derechos reservados Facundo Enriquez T. - Quintana Gustavo F.</footer>\n");
       out.write("    </body>\n");

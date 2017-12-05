@@ -1,8 +1,6 @@
 package Controler;
 
-import Logica.Hotel;
 import java.io.IOException;
-import java.util.Calendar;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -13,8 +11,9 @@ public class ControlerReserva extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        Hotel unHotel = new Hotel();
-        Calendar entrada = request.getParameter("fechaInicio").;
+       
+        request.getRequestDispatcher("Reserva.jsp").forward(request, response);
+        //request.setAttribute("tipos", tipos);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

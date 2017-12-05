@@ -4,63 +4,20 @@
     Author     : maquinola
 --%>
 
+<%@page import="Logica.Habitacion"%>
+<%@page import="Logica.Tipo"%>
+<%@page import="Logica.Hotel"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Gestionar Reserva</title>
-        <style>
-            body{
-                padding: 0px 0px;
-            }
-            
-            ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            width: 200px;
-            background-color: #f1f1f1;
-            }
-
-            li a {
-            display: block;
-            color: #111;
-            padding: 8px 16px;
-            text-decoration: none;
-            }
-
-            li a:hover {
-            background-color: #555;
-            color: white;
-            }
-            
-            footer{
-            margin: 0;
-            color: #000;
-            padding: 650px 16px;
-            text-decoration: none;
-            text-align: center;
-            }
-            
-            header{
-                display: line;
-                text-align: center;
-                font: fantasy;
-                background-color: #138496;
-                padding: auto;
-                font-size: 25px; 
-                
-            }
-            header ul{
-                align-content: space-around;
-            }
-            ffecha{
-                align-content: center;
-            }
-            
-        </style>
+        <link href="css/estiloMenu.css" rel="stylesheet">
     </head>
     <body>
         <header>
@@ -74,18 +31,56 @@
             <li><a href="Principal.jsp">Inicio</a></li>
             <li><a href="Presupuesto.jsp">Presupuesto</a></li> 
         </ul>
-        <form id="ffecha" action="ControlerReserva">
-            fecha Ingreso<input type="date" name="fechaInicio" />
-            fecha Egreso<input type="date" name="fechaFin"/>
-            <select> <!-- traer todos los tipos de habitaciones. -->
-                <option value="volvo">Volvo</option>
-                <option value="saab">Saab</option>
-                <option value="opel">Opel</option>
-                <option value="audi">Audi</option>
-            </select>
-            <button type="submit">Solicitar</button>
-        </form>
-        
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+                </div>
+                <div class="col-sm-4">
+                    <form id="ffecha" action="ControlerReserva">
+                        <div class="form-group">
+                            <label for="text">Fecha Entrada</label>
+                            <input type="date" name="fechaInicio" class="form-control"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="text">Fecha Salida</label>
+                            <input type="date" name="fechaInicio" class="form-control"/>
+                        </div>                                     
+                        <div class="dropdown">
+                            
+                            <button class="btn btn-default dropdown-toggle" type="submit" id="menu1" data-toggle="dropdown">Tipo
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                                <%
+                                    Hotel unHotel = new Hotel();
+                                    for(Tipo unTipo : unHotel.mostrarTipos()){
+                                %>
+                                   <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><%= unTipo.getNombre()%></a></li>
+                                <%}%>
+                            </ul>
+                        </div>
+                        <div class="dropdown">
+                            <button class="btn btn-default dropdown-toggle" type="submit" id="menu1" data-toggle="dropdown">Habitacion
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                                <%
+                                    
+                                    for(Habitacion unaHabitacion : unHotel.mostrarHabitaciones()){
+                                      
+                                %>
+                                   <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><%= unaHabitacion.getId() %></a></li>
+                                <%}%>
+                            </ul>
+                        </div>
+                            <button type="submit" name="reservar"> Reservar</button>
+                    </form>
+               
+               </div>
+                <div class="col-sm-4">
+                </div>
+            </div>
+        </div>
     </body>
 </html>
 <!--
