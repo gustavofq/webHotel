@@ -17,6 +17,7 @@ public class ControlerCuenta extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         Hotel unHotel = new Hotel();
         HttpSession unaSession = request.getSession();
+        
        
         Cliente unCliente = unHotel.DameElCliente(unHotel.buscarPorUsuario((String)unaSession.getAttribute("seccion")));
         request.setAttribute("nombre", unCliente.getNombre());

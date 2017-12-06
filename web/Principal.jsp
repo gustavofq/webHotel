@@ -20,6 +20,5 @@
                 <li><a href="<%= request.getContextPath()+"/ControlerReserva"%>" >Reservas</a></li>
                 <li><a href="<%= request.getContextPath()+"/ControlerCuenta"%>" >Cuenta</a></li>
             </ul>
-        <footer>Todos los derechos reservados Facundo Enriquez T. - Quintana Gustavo F.</footer>
     </body>
 </html>

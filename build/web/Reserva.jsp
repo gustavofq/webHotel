@@ -1,8 +1,4 @@
-<%-- 
-    Document   : Reserva
-    Created on : 27/11/2017, 18:20:00
-    Author     : maquinola
---%>
+
 
 <%@page import="Logica.Habitacion"%>
 <%@page import="Logica.Tipo"%>
@@ -11,26 +7,23 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Gestionar Reserva</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <script src="js/bootstrap.min.js"></script>
+        <title>Reserva</title>
+        <link rel="stylesheet" type="text/css" href="CSS.css"> 
         <link href="css/estiloMenu.css" rel="stylesheet">
     </head>
     <body>
         <header>
             <a><%= session.getAttribute("seccion")%></a>
-            <ul>
-                <li><a href="Ajustes.jsp">Ajustes</a></li>
-                <li><a href="cambiarPass.jsp">Cambiar Contraseña</a></li>
-            </ul>
         </header>
-        <ul class="menu">
-            <li><a href="Principal.jsp">Inicio</a></li>
-            <li><a href="Presupuesto.jsp">Presupuesto</a></li> 
-        </ul>
+            <ul>
+                <li><a href="Presupuesto.jsp">Presupuesto</a></li>
+                <li><a href="<%= request.getContextPath()+"/ControlerReserva"%>" >Reservas</a></li>
+                <li><a href="<%= request.getContextPath()+"/ControlerCuenta"%>" >Cuenta</a></li>
+            </ul>
         <div class="container">
             <div class="row">
                 <div class="col-sm-4">
