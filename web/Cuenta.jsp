@@ -21,16 +21,16 @@
                 <li><a href="<%= request.getContextPath()+"/ControlerCuenta"%>" >Cuenta</a></li>
             </ul>
         <div class="wrapper">
-            <form class="form-signin" action="ControlerCuenta" method="post">       
+            <form class="form-signin" action="ControlerModificarDatos" method="post">       
                 <h2 class="form-signin-heading">Modificar</h2>
                 <label> Nombre </label>
-                <input type="text" class="form-control" name="username" value="<%=(String)request.getAttribute("nombre")%>"/>
+                <input type="text" class="form-control" name="nombre" value="<%=(String)request.getAttribute("nombre")%>"/>
                 <label> apellido </label>
-                <input type="text" class="form-control" name="username"value="<%=(String)request.getAttribute("apellido")%>"/>
+                <input type="text" class="form-control" name="apellido"value="<%=(String)request.getAttribute("apellido")%>"/>
                 <label> N° tarjeta </label>
-                <input type="text" class="form-control" name="username" value="<%=(Double)request.getAttribute("tarjeta")%>"/>
+                <input type="text" class="form-control" name="tarjeta" value="<%=(Double)request.getAttribute("tarjeta")%>"/>
                 <label> Usuario </label>
-                <input type="text" class="form-control" name="username" value="<%=(String)request.getAttribute("user")%>"/>
+                <input type="text" class="form-control" name="user" value="<%=(String)request.getAttribute("user")%>"/>
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Guardar</button>   
             </form>
             <%if(request.getAttribute("mensaje")!= null){%>
