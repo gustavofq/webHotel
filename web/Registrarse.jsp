@@ -7,6 +7,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Registrarse</title>
         <link rel="stylesheet" type="text/css" href="CSS.css">
+        <link rel="stylesheet" type="text/css" href="estiloLogin.css">
         <script>
             function validarPass(){
                 var pass1 = formulario.pw1.value;
@@ -70,7 +71,7 @@
     <body>
         <div class="wrapper">
             <form id="formulario" class="form-signin" action="ControlerRegistrarse" method="post">       
-                <h2 class="form-signin-heading">Ingresar</h2>
+                <h2 class="form-signin-heading">Registrarse</h2>
                 <h5>Nombre</h5><input type="text" class="form-control" name="nombre" placeholder="ej: Pedro" required="" autofocus="">
                 <h5>Apellido</h5><input type="text" class="form-control" name="apellido" placeholder="ej: Diaz" required=""/>
                 <h5>DNI</h5><input type="text" class="form-control" name="dni" placeholder="ej: 12345678" required=""/>

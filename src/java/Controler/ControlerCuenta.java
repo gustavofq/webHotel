@@ -1,18 +1,30 @@
 package Controler;
 
+import Logica.Cliente;
+import Logica.Hotel;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
-public class ControlerAjustes extends HttpServlet {
-    
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException, Exception {
+
+public class ControlerCuenta extends HttpServlet {
+
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        request.getRequestDispatcher("index.jsp").forward(request, response);
+        Hotel unHotel = new Hotel();
+        HttpSession unaSession = request.getSession();
+       
+        Cliente unCliente = unHotel.DameElCliente(unHotel.buscarPorUsuario((String)unaSession.getAttribute("seccion")));
+        request.setAttribute("nombre", unCliente.getNombre());
+        request.setAttribute("apellido", unCliente.getApellido());
+        request.setAttribute("tarjeta",unCliente.getTarjetaDeCredito());
+        request.setAttribute("user", unCliente.getUsuario());
+        request.getRequestDispatcher("Cuenta.jsp").forward(request, response);
+      
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -27,13 +39,7 @@ public class ControlerAjustes extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-      
-        try {
-            processRequest(request, response);
-        } catch (Exception ex) {
-            Logger.getLogger(ControlerAjustes.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
+        processRequest(request, response);
     }
 
     /**
@@ -47,11 +53,7 @@ public class ControlerAjustes extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (Exception ex) {
-            Logger.getLogger(ControlerAjustes.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**

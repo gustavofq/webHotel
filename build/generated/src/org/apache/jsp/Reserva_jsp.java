@@ -88,27 +88,22 @@ public final class Reserva_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                        <div class=\"form-group\">\r\n");
       out.write("                            <label for=\"text\">Fecha Salida</label>\r\n");
       out.write("                            <input type=\"date\" name=\"fechaInicio\" class=\"form-control\"/>\r\n");
-      out.write("                        </div>                                     \r\n");
+      out.write("                        </div>\r\n");
+      out.write("                        <form action=\"controlerReserva\">\r\n");
       out.write("                        <div class=\"dropdown\">\r\n");
       out.write("                            \r\n");
       out.write("                            <button class=\"btn btn-default dropdown-toggle\" type=\"submit\" id=\"menu1\" data-toggle=\"dropdown\">Tipo\r\n");
       out.write("                                <span class=\"caret\"></span>\r\n");
       out.write("                            </button>\r\n");
       out.write("                            <ul class=\"dropdown-menu\" role=\"menu\" aria-labelledby=\"menu1\">\r\n");
-      out.write("                                ");
-
-                                    Hotel unHotel = new Hotel();
-                                    for(Tipo unTipo : unHotel.mostrarTipos()){
-                                
-      out.write("\r\n");
-      out.write("                                   <li role=\"presentation\"><a role=\"menuitem\" tabindex=\"-1\" href=\"#\">");
-      out.print( unTipo.getNombre());
+      out.write("                                \r\n");
+      out.write("                                <li role=\"presentation\"><a role=\"menuitem\" tabindex=\"-1\" href=\"#\">");
+      out.print(request.getParameter("hola"));
       out.write("</a></li>\r\n");
-      out.write("                                ");
-}
-      out.write("\r\n");
+      out.write("                                \r\n");
       out.write("                            </ul>\r\n");
       out.write("                        </div>\r\n");
+      out.write("                        </form>\r\n");
       out.write("                        <div class=\"dropdown\">\r\n");
       out.write("                            <button class=\"btn btn-default dropdown-toggle\" type=\"submit\" id=\"menu1\" data-toggle=\"dropdown\">Habitacion\r\n");
       out.write("                                <span class=\"caret\"></span>\r\n");
@@ -116,7 +111,7 @@ public final class Reserva_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                            <ul class=\"dropdown-menu\" role=\"menu\" aria-labelledby=\"menu1\">\r\n");
       out.write("                                ");
 
-                                    
+                                    Hotel unHotel = new Hotel();
                                     for(Habitacion unaHabitacion : unHotel.mostrarHabitaciones()){
                                       
                                 

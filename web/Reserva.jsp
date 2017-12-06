@@ -44,28 +44,27 @@
                         <div class="form-group">
                             <label for="text">Fecha Salida</label>
                             <input type="date" name="fechaInicio" class="form-control"/>
-                        </div>                                     
+                        </div>
+                        <form action="controlerReserva">
                         <div class="dropdown">
                             
                             <button class="btn btn-default dropdown-toggle" type="submit" id="menu1" data-toggle="dropdown">Tipo
                                 <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                                <%
-                                    Hotel unHotel = new Hotel();
-                                    for(Tipo unTipo : unHotel.mostrarTipos()){
-                                %>
-                                   <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><%= unTipo.getNombre()%></a></li>
-                                <%}%>
+                                
+                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><%=request.getAttribute("hola")%></a></li>
+                                
                             </ul>
                         </div>
+                        </form>
                         <div class="dropdown">
                             <button class="btn btn-default dropdown-toggle" type="submit" id="menu1" data-toggle="dropdown">Habitacion
                                 <span class="caret"></span>
                             </button>
                             <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
                                 <%
-                                    
+                                    Hotel unHotel = new Hotel();
                                     for(Habitacion unaHabitacion : unHotel.mostrarHabitaciones()){
                                       
                                 %>

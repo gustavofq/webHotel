@@ -5,40 +5,32 @@
         <servlet-class>Controler.ControlerInicio</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>controlerAjustes</servlet-name>
-        <servlet-class>Controler.ControlerAjustes</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>ControlerRegistrarse</servlet-name>
         <servlet-class>Controler.ControlerRegistrarse</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>ControlerCambiarPass</servlet-name>
-        <servlet-class>Controler.ControlerCambiarPass</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>ControlerReserva</servlet-name>
         <servlet-class>Controler.ControlerReserva</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ControlerCuenta</servlet-name>
+        <servlet-class>Controler.ControlerCuenta</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ControlerLogin</servlet-name>
         <url-pattern>/ControlerLogin</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>controlerAjustes</servlet-name>
-        <url-pattern>/controlerAjustes</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>ControlerRegistrarse</servlet-name>
         <url-pattern>/ControlerRegistrarse</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>ControlerCambiarPass</servlet-name>
-        <url-pattern>/ControlerCambiarPass</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
         <servlet-name>ControlerReserva</servlet-name>
         <url-pattern>/ControlerReserva</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControlerCuenta</servlet-name>
+        <url-pattern>/ControlerCuenta</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

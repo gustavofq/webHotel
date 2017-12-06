@@ -66,14 +66,15 @@ public final class Principal_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        </header>\n");
       out.write("            <ul>\n");
       out.write("                <li><a href=\"Presupuesto.jsp\">Presupuesto</a></li>\n");
-      out.write("                <form action=\"ControlerReserva\">\n");
+      out.write("                <li><a href=\"");
+      out.print( request.getContextPath()+"/ControlerReserva");
+      out.write("\" >Reservas Servlet</a></li>\n");
       out.write("                <li><a href=\"Reserva.jpa\">Reservas</a>\n");
-      out.write("                \n");
       out.write("                    <ul>\n");
       out.write("                        <li><a href=\"ListaDeReserva.jsp\">Lista de Reserva</a></li>\n");
       out.write("                    </ul>\n");
       out.write("                </li>\n");
-      out.write("                </form>\n");
+      out.write("                \n");
       out.write("            </ul>\n");
       out.write("        <footer>Todos los derechos reservados Facundo Enriquez T. - Quintana Gustavo F.</footer>\n");
       out.write("    </body>\n");

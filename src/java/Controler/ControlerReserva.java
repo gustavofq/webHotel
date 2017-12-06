@@ -1,5 +1,6 @@
 package Controler;
 
+import Logica.Hotel;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -8,12 +9,15 @@ import javax.servlet.http.HttpServletResponse;
 
 public class ControlerReserva extends HttpServlet {
 
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-       
+        /*Hotel unHotel = new Hotel();
+        String[] tipos = new String[unHotel.mostrarTipos().size()];
+        request.setAttribute("tipos",tipos);*/
+        String Hola = "holaaa ";
+        request.setAttribute("hola", Hola);
         request.getRequestDispatcher("Reserva.jsp").forward(request, response);
-        //request.setAttribute("tipos", tipos);
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

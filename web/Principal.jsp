@@ -14,20 +14,11 @@
     <body>
         <header>
             <a><%= session.getAttribute("seccion")%></a>
-            <ul>
-                <li><a href="Ajustes.jsp">Ajustes</a></li>
-                <li><a href="cambiarPass.jsp">Cambiar Contraseña</a></li>
-            </ul>
         </header>
             <ul>
                 <li><a href="Presupuesto.jsp">Presupuesto</a></li>
-                <form action="ControlerReserva">
-                <li><a href="Reserva.jpa">Reservas</a>
-                    <ul>
-                        <li><a href="ListaDeReserva.jsp">Lista de Reserva</a></li>
-                    </ul>
-                </li>
-                </form>
+                <li><a href="<%= request.getContextPath()+"/ControlerReserva"%>" >Reservas</a></li>
+                <li><a href="<%= request.getContextPath()+"/ControlerCuenta"%>" >Cuenta</a></li>
             </ul>
         <footer>Todos los derechos reservados Facundo Enriquez T. - Quintana Gustavo F.</footer>
     </body>
