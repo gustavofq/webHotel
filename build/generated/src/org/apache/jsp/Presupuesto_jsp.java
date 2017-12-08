@@ -3,10 +3,18 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import Logica.Servicio;
+import java.text.DateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.text.SimpleDateFormat;
+import Logica.Habitacion;
+import Logica.Hotel;
 
 public final class Presupuesto_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
+Hotel unHotel = new Hotel();
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
 
   private static java.util.List<String> _jspx_dependants;
@@ -43,9 +51,20 @@ public final class Presupuesto_jsp extends org.apache.jasper.runtime.HttpJspBase
 
       out.write("\n");
       out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
       out.write("<!DOCTYPE html>\n");
       out.write("<html>\n");
       out.write("    <head>\n");
+      out.write("        \n");
+      out.write("        ");
+      out.write("\n");
       out.write("        <link href=\"css/bootstrap.min.css\" rel=\"stylesheet\">\n");
       out.write("        <script src=\"js/bootstrap.min.js\"></script>\n");
       out.write("        <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css\" integrity=\"sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb\" crossorigin=\"anonymous\">\n");
@@ -69,7 +88,81 @@ public final class Presupuesto_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.print( request.getContextPath()+"/ControlerCuenta");
       out.write("\" >Cuenta</a></li>\n");
       out.write("            </ul>\n");
-      out.write("        \n");
+      out.write("        <div class=\"container\">\n");
+      out.write("            <div class=\"row\">\n");
+      out.write("                <div class=\"col-sm-4\">\n");
+      out.write("                </div>\n");
+      out.write("                <div class=\"col-sm-4\">\n");
+      out.write("                    <form id=\"ffecha\" action=\"ControlerPresupuestar\">\n");
+      out.write("                        <div class=\"form-group\">\n");
+      out.write("                            <label for=\"text\">Fecha Entrada</label>\n");
+      out.write("                            <input type=\"date\" name=\"fechaInicio\" class=\"form-control\"/>\n");
+      out.write("                        </div>\n");
+      out.write("                        <div class=\"form-group\">\n");
+      out.write("                            <label for=\"text\">Fecha Salida</label>\n");
+      out.write("                            <input type=\"date\" name=\"fechaFinal\" class=\"form-control\"/>\n");
+      out.write("                        </div>\n");
+      out.write("                        \n");
+      out.write("                        <div class=\"dropdown\">\n");
+      out.write("                            <select name=\"habitaciones\">\n");
+      out.write("                                ");
+for(Habitacion unaHabitacion : unHotel.mostrarHabitaciones()){
+      out.write("\n");
+      out.write("                                <option name=\"habitacion\" value='");
+      out.print( unaHabitacion.getId() );
+      out.write('\'');
+      out.write('>');
+      out.print( "Número: " + unaHabitacion.getId() + " Tipo: " + unaHabitacion.getUnTipo().getNombre() + " Precio: " +unaHabitacion.getMontoPorNoche() );
+      out.write("</option>\n");
+      out.write("                                ");
+}
+      out.write("\n");
+      out.write("                            </select>   \n");
+      out.write("                        </div>\n");
+      out.write("                        <div>\n");
+      out.write("                             <select name=\"habitaciones\">\n");
+      out.write("                                ");
+for(Servicio unServicio : unHotel.mostrarServicios()){
+      out.write("\n");
+      out.write("                                <option name=\"servicio\" value=\"");
+      out.print( unServicio.getId() );
+      out.write('"');
+      out.write('>');
+      out.print( "Servicio: " + unServicio.getNombre() );
+      out.write("</option>\n");
+      out.write("                                ");
+}
+      out.write("\n");
+      out.write("                            </select>    \n");
+      out.write("                        </div>\n");
+      out.write("                        <input type=\"submit\" />\n");
+      out.write("                    </form>\n");
+      out.write("               </div>\n");
+      out.write("                <div class=\"col-sm-4\">\n");
+      out.write("                    <ul>\n");
+      out.write("                        ");
+
+                        if(request.getParameter("fechaInicio") == null){
+                            request.setAttribute("dias", "");
+                        }
+                        double precio = 0.0;
+                        if(request.getParameter("fechaFinal") == null){
+                            request.setAttribute("precio", precio);
+                        }
+                        
+                        
+      out.write("\n");
+      out.write("                        <li><label>Detalles</label></li>\n");
+      out.write("                        <li><label>Dias: ");
+      out.print(request.getAttribute("dias"));
+      out.write("</label></li>\n");
+      out.write("                        <li><label >Precio final: ");
+      out.print((Double)request.getAttribute("precio"));
+      out.write("</label></li>\n");
+      out.write("                    </ul>\n");
+      out.write("                </div>\n");
+      out.write("            </div>\n");
+      out.write("        </div>\n");
       out.write("    </body>\n");
       out.write("</html>\n");
       out.write("<!-- \n");

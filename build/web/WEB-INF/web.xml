@@ -20,6 +20,10 @@
         <servlet-name>ControlerModificarDatos</servlet-name>
         <servlet-class>Controler.ControlerModificarDatos</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ControlerPresupuestar</servlet-name>
+        <servlet-class>Controler.ControlerPresupuestar</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ControlerLogin</servlet-name>
         <url-pattern>/ControlerLogin</url-pattern>
@@ -39,6 +43,10 @@
     <servlet-mapping>
         <servlet-name>ControlerModificarDatos</servlet-name>
         <url-pattern>/ControlerModificarDatos</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControlerPresupuestar</servlet-name>
+        <url-pattern>/ControlerPresupuestar</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

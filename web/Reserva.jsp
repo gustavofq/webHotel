@@ -38,7 +38,7 @@
                             <label for="text">Fecha Salida</label>
                             <input type="date" name="fechaInicio" class="form-control"/>
                         </div>
-                        <form action="controlerReserva">
+                        
                         <div class="dropdown">
                             
                             <button class="btn btn-default dropdown-toggle" type="submit" id="menu1" data-toggle="dropdown">Tipo
@@ -50,7 +50,7 @@
                                 
                             </ul>
                         </div>
-                        </form>
+                        
                         <div class="dropdown">
                             <button class="btn btn-default dropdown-toggle" type="submit" id="menu1" data-toggle="dropdown">Habitacion
                                 <span class="caret"></span>

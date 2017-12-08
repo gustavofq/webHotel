@@ -1007,7 +1007,43 @@ public class Hotel {
         return miPersistencia.obtenerTipos();
     }
     
+    public int calcularDias(Calendar fechaEntrada, Calendar fechaSalida){
+        int cantidadDias = 1;
+        boolean listo = false;
+        int fecha1 = fechaEntrada.get(Calendar.DAY_OF_YEAR);
+        int fecha2 = fechaSalida.get(Calendar.DAY_OF_YEAR);
+        if(fecha1 <= fecha2){
+            while(listo == false){
+                if(fecha1 == fecha2){
+                    listo = true;
+                }else{
+                    if(fecha1 == 365){
+                        fecha1 = 0;
+                        cantidadDias++;
+                    }
+                    else{
+                        fecha1++;
+                        cantidadDias++;
+                    }
+                }
+            }
+        }else{
+            cantidadDias =0;
+        }
+        return cantidadDias;
+    }
     
+    public double CalcularPrecio(){
+        double precio = 0;
+        
+        return precio;
+    }
+    
+    public double presupuestar(Calendar fechaEntrada,Calendar fechaSalida,Habitacion unaHabitacion){
+        double precio=0;
+        precio = unaHabitacion.getMontoPorNoche() * this.calcularDias(fechaEntrada, fechaSalida);
+        return precio;
+    }
     
     
     

@@ -85,23 +85,33 @@ public class RHabitacion extends Reservas implements Serializable{
         this.unCliente = unCliente;
     }
 
-    public int calcularDias(){
-        int cantidadDias = 1;
+    public int calcularDias(Calendar fechaEntrada, Calendar fechaSalida){
+        int cantidadDias = 0;
         boolean listo = false;
-        Calendar dia = Calendar.getInstance();
-        dia.setTime(this.fechaEntrada.getTime());
+        
+        int fecha1 = fechaEntrada.get(Calendar.DAY_OF_YEAR);
+        int fecha2 = fechaSalida.get(Calendar.DAY_OF_YEAR);
+        
         while(listo == false){
-            if(this.fechaSalida.compareTo(dia) == 0){
+            if(fecha1 == fecha2){
                 listo = true;
             }else{
-                dia.add(Calendar.DAY_OF_YEAR, 1);
-                cantidadDias++;
+                if(fecha1 == 365){
+                    fecha1 = 0;
+                    cantidadDias++;
+                }
+                else{
+                    fecha1++;
+                    cantidadDias++;
+                }
             }
         }
         return cantidadDias;
     }
-
-    public int calcularPrecio(){
-        return this.calcularDias() * this.unaHabitacion.getMontoPorNoche();
+    
+    public double CalcularPrecio(){
+        double precio = 0;
+        precio = this.unaHabitacion.getMontoPorNoche() * this.calcularDias(this.fechaEntrada, this.fechaSalida);
+        return precio;
     }
 }

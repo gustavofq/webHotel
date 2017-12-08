@@ -41,7 +41,6 @@ public class ControlerModificarDatos extends HttpServlet {
            request.getRequestDispatcher("/ControlerCuenta").include(request, response);
         }
         request.getRequestDispatcher("Principal.jsp").forward(request, response);
-       
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
