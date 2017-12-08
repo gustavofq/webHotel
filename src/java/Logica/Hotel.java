@@ -876,9 +876,9 @@ public class Hotel {
     
     //Servicios
     
-    public void altaServicio(int id, String nombre, String descripcion) throws Exception {
+    public void altaServicio(int id, String nombre, String descripcion, int precio) throws Exception {
         if (comprobarServicio(id) == false) {
-            Servicio unServicio = new Servicio(id, nombre, descripcion);
+            Servicio unServicio = new Servicio(id, nombre, descripcion, precio);
             misServicios.add(unServicio);
             miPersistencia.AltaServicio(unServicio);
         }

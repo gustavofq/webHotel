@@ -66,7 +66,7 @@
                     <ul>
                         <%
                         if(request.getParameter("fechaInicio") == null){
-                            request.setAttribute("dias", "");
+                            request.setAttribute("dias", 0);
                         }
                         double precio = 0.0;
                         if(request.getParameter("fechaFinal") == null){
@@ -81,6 +81,10 @@
                 </div>
             </div>
         </div>
+        <%if(request.getAttribute("mensaje")!= null){%>
+        <script>alert("<%=request.getAttribute("mensaje")%>");</script>
+        <% request.setAttribute("mensaje",null);%>
+        <%}%>
     </body>
 </html>
 <!-- 

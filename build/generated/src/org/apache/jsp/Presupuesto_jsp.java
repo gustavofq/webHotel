@@ -120,7 +120,7 @@ for(Habitacion unaHabitacion : unHotel.mostrarHabitaciones()){
       out.write("                            </select>   \n");
       out.write("                        </div>\n");
       out.write("                        <div>\n");
-      out.write("                             <select name=\"habitaciones\">\n");
+      out.write("                             <select name=\"servicios\">\n");
       out.write("                                ");
 for(Servicio unServicio : unHotel.mostrarServicios()){
       out.write("\n");
@@ -143,7 +143,7 @@ for(Servicio unServicio : unHotel.mostrarServicios()){
       out.write("                        ");
 
                         if(request.getParameter("fechaInicio") == null){
-                            request.setAttribute("dias", "");
+                            request.setAttribute("dias", 0);
                         }
                         double precio = 0.0;
                         if(request.getParameter("fechaFinal") == null){
@@ -163,6 +163,18 @@ for(Servicio unServicio : unHotel.mostrarServicios()){
       out.write("                </div>\n");
       out.write("            </div>\n");
       out.write("        </div>\n");
+      out.write("        ");
+if(request.getAttribute("mensaje")!= null){
+      out.write("\n");
+      out.write("        <script>alert(\"");
+      out.print(request.getAttribute("mensaje"));
+      out.write("\");</script>\n");
+      out.write("        ");
+ request.setAttribute("mensaje",null);
+      out.write("\n");
+      out.write("        ");
+}
+      out.write("\n");
       out.write("    </body>\n");
       out.write("</html>\n");
       out.write("<!-- \n");

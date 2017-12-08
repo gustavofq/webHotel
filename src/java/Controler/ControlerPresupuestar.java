@@ -21,26 +21,30 @@ public class ControlerPresupuestar extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException, ParseException {
         response.setContentType("text/html;charset=UTF-8");
         Hotel unHotel = new Hotel();
-        
-        String dateJsp = request.getParameter("fechaInicio");
-        SimpleDateFormat formaDate = new SimpleDateFormat("yyyy-MM-dd");
-        Date dateFecha = formaDate.parse(dateJsp);
-        Calendar fecha = Calendar.getInstance();
-        fecha.setTime(dateFecha);
-     
         String dateJsp2 = request.getParameter("fechaFinal");
-        SimpleDateFormat formaDate2 = new SimpleDateFormat("yyyy-MM-dd");
-        Date dateFecha2 = formaDate.parse(dateJsp2);
-        Calendar fecha2 = Calendar.getInstance();
-        fecha2.setTime(dateFecha2);
-
-        
-        int dias = unHotel.calcularDias(fecha, fecha2);
-        request.setAttribute("dias", dias);
-        int numero = Integer.parseInt(request.getParameter("habitaciones"));
-        double precio = unHotel.presupuestar(fecha, fecha2, unHotel.DameLaHabitacion(numero));
-        request.setAttribute("precio", precio);
-        request.getRequestDispatcher("Presupuesto.jsp").forward(request, response);
+        String dateJsp = request.getParameter("fechaInicio");
+        int dias = 0;
+        double precio = 0.0;
+        if((dateJsp != "") && (dateJsp2 != "")){
+            SimpleDateFormat formaDate = new SimpleDateFormat("yyyy-MM-dd");
+            Date dateFecha = formaDate.parse(dateJsp);
+            Calendar fecha = Calendar.getInstance();
+            fecha.setTime(dateFecha);
+            Date dateFecha2 = formaDate.parse(dateJsp2);
+            Calendar fecha2 = Calendar.getInstance();
+            fecha2.setTime(dateFecha2);
+            dias = unHotel.calcularDias(fecha, fecha2);
+            request.setAttribute("dias", dias);
+            int numero = Integer.parseInt(request.getParameter("habitaciones"));
+            precio = unHotel.presupuestar(fecha, fecha2, unHotel.DameLaHabitacion(numero)) + unHotel.DameElServicio(Integer.parseInt(request.getParameter("servicios"))).getPrecio();
+            request.setAttribute("precio", precio);
+            request.getRequestDispatcher("Presupuesto.jsp").forward(request, response);
+        }else{
+            request.setAttribute("mensaje", "Debe completar los campo con las fechas.");
+            request.setAttribute("dias", dias);
+            request.setAttribute("precio", precio);
+            request.getRequestDispatcher("Presupuesto.jsp").forward(request, response);
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

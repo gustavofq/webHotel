@@ -73,6 +73,10 @@
                 </div>
             </div>
         </div>
+        <%if(request.getAttribute("mensaje")!= null){%>
+        <script>alert("<%=request.getAttribute("mensaje")%>");</script>
+        <% request.setAttribute("mensaje",null);%>
+        <%}%>
     </body>
 </html>
 <!--
