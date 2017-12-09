@@ -288,7 +288,7 @@ public class Hotel {
     }
     
     public void modificarCliente(Cliente oldCliente, Cliente newCliente) throws Exception{
-        misClientes.remove(oldCliente);
+       misClientes.remove(oldCliente);
         miPersistencia.EditarCliente(newCliente);
     }
 
@@ -1028,7 +1028,11 @@ public class Hotel {
                 }
             }
         }else{
-            cantidadDias =0;
+            if(fechaSalida.get(Calendar.YEAR) > fechaEntrada.get(Calendar.YEAR)){
+                cantidadDias = 1 + (365 - fecha1) + fecha2;                
+            }else{
+                cantidadDias =0;
+            }
         }
         return cantidadDias;
     }

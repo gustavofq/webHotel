@@ -1,5 +1,6 @@
 
 
+<%@page import="Logica.Servicio"%>
 <%@page import="Logica.Habitacion"%>
 <%@page import="Logica.Tipo"%>
 <%@page import="Logica.Hotel"%>
@@ -7,6 +8,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <%!Hotel unHotel = new Hotel();%>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -24,7 +26,7 @@
                 <li><a href="<%= request.getContextPath()+"/ControlerReserva"%>" >Reservas</a></li>
                 <li><a href="<%= request.getContextPath()+"/ControlerCuenta"%>" >Cuenta</a></li>
             </ul>
-        <div class="container">
+         <div class="container">
             <div class="row">
                 <div class="col-sm-4">
                 </div>
@@ -36,40 +38,43 @@
                         </div>
                         <div class="form-group">
                             <label for="text">Fecha Salida</label>
-                            <input type="date" name="fechaInicio" class="form-control"/>
+                            <input type="date" name="fechaFinal" class="form-control"/>
                         </div>
                         
                         <div class="dropdown">
-                            
-                            <button class="btn btn-default dropdown-toggle" type="submit" id="menu1" data-toggle="dropdown">Tipo
-                                <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                                
-                                <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><%=request.getAttribute("hola")%></a></li>
-                                
-                            </ul>
-                        </div>
-                        
-                        <div class="dropdown">
-                            <button class="btn btn-default dropdown-toggle" type="submit" id="menu1" data-toggle="dropdown">Habitacion
-                                <span class="caret"></span>
-                            </button>
-                            <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
-                                <%
-                                    Hotel unHotel = new Hotel();
-                                    for(Habitacion unaHabitacion : unHotel.mostrarHabitaciones()){
-                                      
-                                %>
-                                   <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><%= unaHabitacion.getId() %></a></li>
+                            <select name="habitaciones">
+                                <%for(Habitacion unaHabitacion : unHotel.mostrarHabitaciones()){%>
+                                <option name="habitacion" value='<%= unaHabitacion.getId() %>'><%= "Número: " + unaHabitacion.getId() + " Tipo: " + unaHabitacion.getUnTipo().getNombre() + " Precio: " +unaHabitacion.getMontoPorNoche() %></option>
                                 <%}%>
-                            </ul>
+                            </select>   
                         </div>
-                            <button type="submit" name="reservar"> Reservar</button>
+                        <div>
+                             <select name="servicios">
+                                <%for(Servicio unServicio : unHotel.mostrarServicios()){%>
+                                <option name="servicio" value="<%= unServicio.getId() %>"><%= "Servicio: " + unServicio.getNombre() %></option>
+                                <%}%>
+                            </select>    
+                        </div>
+                        <input type="submit" />
                     </form>
-               
                </div>
                 <div class="col-sm-4">
+                    <ul>
+                        <%
+                        if(request.getParameter("fechaInicio") == null){
+                            request.setAttribute("dias", 0);
+                        }
+                        double precio = 0.0;
+                        if(request.getParameter("fechaFinal") == null){
+                            request.setAttribute("precio", precio);
+                        }
+                        
+                        %>
+                        <li><label>Detalles</label></li>
+                        <li><label>Dias: <%=request.getAttribute("dias")%></label></li>
+                        <li><label >Precio final: <%=(Double)request.getAttribute("precio")%></label></li>
+                        
+                    </ul>
                 </div>
             </div>
         </div>

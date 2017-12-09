@@ -6,16 +6,15 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 public class ControlerReserva extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        /*Hotel unHotel = new Hotel();
-        String[] tipos = new String[unHotel.mostrarTipos().size()];
-        request.setAttribute("tipos",tipos);*/
-        String Hola = "holaaa ";
-        request.setAttribute("hola", Hola);
+        Hotel unHotel = new Hotel();
+        HttpSession unaSession = request.getSession();
+        String usuario = unaSession.getAttribute("seccion").toString();
         request.getRequestDispatcher("Reserva.jsp").forward(request, response);
         
     }

@@ -3,6 +3,7 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import Logica.Servicio;
 import Logica.Habitacion;
 import Logica.Tipo;
 import Logica.Hotel;
@@ -10,6 +11,7 @@ import Logica.Hotel;
 public final class Reserva_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
+Hotel unHotel = new Hotel();
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
 
   private static java.util.List<String> _jspx_dependants;
@@ -50,9 +52,12 @@ public final class Reserva_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
+      out.write("\r\n");
       out.write("<!DOCTYPE html>\r\n");
       out.write("<html>\r\n");
       out.write("    <head>\r\n");
+      out.write("        ");
+      out.write("\r\n");
       out.write("        <link rel=\"stylesheet\" href=\"https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css\" integrity=\"sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb\" crossorigin=\"anonymous\">\r\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n");
       out.write("        <link href=\"css/bootstrap.min.css\" rel=\"stylesheet\">\r\n");
@@ -76,7 +81,7 @@ public final class Reserva_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.print( request.getContextPath()+"/ControlerCuenta");
       out.write("\" >Cuenta</a></li>\r\n");
       out.write("            </ul>\r\n");
-      out.write("        <div class=\"container\">\r\n");
+      out.write("         <div class=\"container\">\r\n");
       out.write("            <div class=\"row\">\r\n");
       out.write("                <div class=\"col-sm-4\">\r\n");
       out.write("                </div>\r\n");
@@ -88,51 +93,84 @@ public final class Reserva_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                        </div>\r\n");
       out.write("                        <div class=\"form-group\">\r\n");
       out.write("                            <label for=\"text\">Fecha Salida</label>\r\n");
-      out.write("                            <input type=\"date\" name=\"fechaInicio\" class=\"form-control\"/>\r\n");
+      out.write("                            <input type=\"date\" name=\"fechaFinal\" class=\"form-control\"/>\r\n");
       out.write("                        </div>\r\n");
-      out.write("                        <form action=\"controlerReserva\">\r\n");
+      out.write("                        \r\n");
       out.write("                        <div class=\"dropdown\">\r\n");
-      out.write("                            \r\n");
-      out.write("                            <button class=\"btn btn-default dropdown-toggle\" type=\"submit\" id=\"menu1\" data-toggle=\"dropdown\">Tipo\r\n");
-      out.write("                                <span class=\"caret\"></span>\r\n");
-      out.write("                            </button>\r\n");
-      out.write("                            <ul class=\"dropdown-menu\" role=\"menu\" aria-labelledby=\"menu1\">\r\n");
-      out.write("                                \r\n");
-      out.write("                                <li role=\"presentation\"><a role=\"menuitem\" tabindex=\"-1\" href=\"#\">");
-      out.print(request.getAttribute("hola"));
-      out.write("</a></li>\r\n");
-      out.write("                                \r\n");
-      out.write("                            </ul>\r\n");
-      out.write("                        </div>\r\n");
-      out.write("                        </form>\r\n");
-      out.write("                        <div class=\"dropdown\">\r\n");
-      out.write("                            <button class=\"btn btn-default dropdown-toggle\" type=\"submit\" id=\"menu1\" data-toggle=\"dropdown\">Habitacion\r\n");
-      out.write("                                <span class=\"caret\"></span>\r\n");
-      out.write("                            </button>\r\n");
-      out.write("                            <ul class=\"dropdown-menu\" role=\"menu\" aria-labelledby=\"menu1\">\r\n");
+      out.write("                            <select name=\"habitaciones\">\r\n");
       out.write("                                ");
-
-                                    Hotel unHotel = new Hotel();
-                                    for(Habitacion unaHabitacion : unHotel.mostrarHabitaciones()){
-                                      
-                                
+for(Habitacion unaHabitacion : unHotel.mostrarHabitaciones()){
       out.write("\r\n");
-      out.write("                                   <li role=\"presentation\"><a role=\"menuitem\" tabindex=\"-1\" href=\"#\">");
+      out.write("                                <option name=\"habitacion\" value='");
       out.print( unaHabitacion.getId() );
-      out.write("</a></li>\r\n");
+      out.write('\'');
+      out.write('>');
+      out.print( "Número: " + unaHabitacion.getId() + " Tipo: " + unaHabitacion.getUnTipo().getNombre() + " Precio: " +unaHabitacion.getMontoPorNoche() );
+      out.write("</option>\r\n");
       out.write("                                ");
 }
       out.write("\r\n");
-      out.write("                            </ul>\r\n");
+      out.write("                            </select>   \r\n");
       out.write("                        </div>\r\n");
-      out.write("                            <button type=\"submit\" name=\"reservar\"> Reservar</button>\r\n");
+      out.write("                        <div>\r\n");
+      out.write("                             <select name=\"servicios\">\r\n");
+      out.write("                                ");
+for(Servicio unServicio : unHotel.mostrarServicios()){
+      out.write("\r\n");
+      out.write("                                <option name=\"servicio\" value=\"");
+      out.print( unServicio.getId() );
+      out.write('"');
+      out.write('>');
+      out.print( "Servicio: " + unServicio.getNombre() );
+      out.write("</option>\r\n");
+      out.write("                                ");
+}
+      out.write("\r\n");
+      out.write("                            </select>    \r\n");
+      out.write("                        </div>\r\n");
+      out.write("                        <input type=\"submit\" />\r\n");
       out.write("                    </form>\r\n");
-      out.write("               \r\n");
       out.write("               </div>\r\n");
       out.write("                <div class=\"col-sm-4\">\r\n");
+      out.write("                    <ul>\r\n");
+      out.write("                        ");
+
+                        if(request.getParameter("fechaInicio") == null){
+                            request.setAttribute("dias", 0);
+                        }
+                        double precio = 0.0;
+                        if(request.getParameter("fechaFinal") == null){
+                            request.setAttribute("precio", precio);
+                        }
+                        
+                        
+      out.write("\r\n");
+      out.write("                        <li><label>Detalles</label></li>\r\n");
+      out.write("                        <li><label>Dias: ");
+      out.print(request.getAttribute("dias"));
+      out.write("</label></li>\r\n");
+      out.write("                        <li><label >Precio final: ");
+      out.print((Double)request.getAttribute("precio"));
+      out.write("</label></li>\r\n");
+      out.write("                        <li><label>apellido: ");
+      out.print( request.getAttribute("usuario"));
+      out.write("</label></li>\r\n");
+      out.write("                    </ul>\r\n");
       out.write("                </div>\r\n");
       out.write("            </div>\r\n");
       out.write("        </div>\r\n");
+      out.write("        ");
+if(request.getAttribute("mensaje")!= null){
+      out.write("\r\n");
+      out.write("        <script>alert(\"");
+      out.print(request.getAttribute("mensaje"));
+      out.write("\");</script>\r\n");
+      out.write("        ");
+ request.setAttribute("mensaje",null);
+      out.write("\r\n");
+      out.write("        ");
+}
+      out.write("\r\n");
       out.write("    </body>\r\n");
       out.write("</html>\r\n");
       out.write("<!--\r\n");
