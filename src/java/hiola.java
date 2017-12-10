@@ -1,34 +1,46 @@
-package Controler;
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 
-import Logica.Hotel;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
+/**
+ *
+ * @author maquinola
+ */
+public class hiola extends HttpServlet {
 
-@WebServlet(name = "ControlerHome", urlPatterns = {"/ControlerHome"})
-public class ControlerLogin extends HttpServlet {
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-       
-            Hotel unHotel = new Hotel();
-            String user = request.getParameter("username");
-            String pass = request.getParameter("password");
-            if(unHotel.existeUsuario(user, pass)){
-                HttpSession unaSession = request.getSession();
-                unaSession.setAttribute("seccion", user);
-                request.getRequestDispatcher("Principal.jsp").forward(request, response);
-            }else {
-                request.setAttribute("mensaje", "Usuario o Contraseña incorrecto.");
-                request.getRequestDispatcher("Login.jsp").forward(request, response);
-            }  
-         
+        try (PrintWriter out = response.getWriter()) {
+            /* TODO output your page here. You may use following sample code. */
+            out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet hiola</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet hiola at " + request.getContextPath() + "</h1>");
+            out.println("</body>");
+            out.println("</html>");
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
