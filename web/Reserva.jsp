@@ -1,5 +1,3 @@
-
-
 <%@page import="Logica.Servicio"%>
 <%@page import="Logica.Habitacion"%>
 <%@page import="Logica.Tipo"%>
