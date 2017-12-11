@@ -32,7 +32,9 @@
                 <label> Usuario </label>
                 <input type="text" class="form-control" name="user" value="<%=(String)request.getAttribute("user")%>"/>
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Guardar</button>   
+                <buton><a href="<%= request.getContextPath()+"/ControlerSession"%>" >Cerrar Session</a></buton>
             </form>
+                
             <%if(request.getAttribute("mensaje")!= null){%>
                 <script>alert("<%=request.getAttribute("mensaje")%>");</script>
                 <% request.setAttribute("mensaje",null);%>

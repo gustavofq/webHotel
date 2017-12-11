@@ -28,6 +28,10 @@
         <servlet-name>ControlerNewReserva</servlet-name>
         <servlet-class>Controler.ControlerNewReserva</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ControlerSession</servlet-name>
+        <servlet-class>Controler.ControlerSession</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ControlerLogin</servlet-name>
         <url-pattern>/ControlerLogin</url-pattern>
@@ -55,6 +59,10 @@
     <servlet-mapping>
         <servlet-name>ControlerNewReserva</servlet-name>
         <url-pattern>/ControlerNewReserva</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ControlerSession</servlet-name>
+        <url-pattern>/ControlerSession</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

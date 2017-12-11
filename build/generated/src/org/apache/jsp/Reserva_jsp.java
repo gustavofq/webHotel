@@ -95,7 +95,7 @@ Hotel unHotel = new Hotel();
       out.write("                <div class=\"col-sm-4\">\r\n");
       out.write("                </div>\r\n");
       out.write("                <div class=\"col-sm-4\">\r\n");
-      out.write("                    <form id=\"ffecha\" action=\"ControlerReserva\">\r\n");
+      out.write("                    <form id=\"ffecha\" action=\"ControlerNewReserva\">\r\n");
       out.write("                        <div class=\"form-group\">\r\n");
       out.write("                            <label for=\"text\">Fecha Entrada</label>\r\n");
       out.write("                            <input type=\"date\" name=\"fechaInicio\" class=\"form-control\"/>\r\n");
@@ -139,25 +139,8 @@ for(Servicio unServicio : unHotel.mostrarServicios()){
       out.write("                        </div>\r\n");
       out.write("                        <input type=\"submit\" />\r\n");
       out.write("                    </form>\r\n");
-      out.write("               </div>\r\n");
-      out.write("                <div class=\"col-sm-4\">\r\n");
-      out.write("                    <ul>\r\n");
-      out.write("                        ");
-String usuario = session.getAttribute("seccion").toString();
-                        int dni = unHotel.buscarPorUsuario(usuario);
-                        for(RHabitacion unaRHabitacion : unHotel.consultarReserva(unHotel.DameElCliente(dni))){
-      out.write("\r\n");
-      out.write("                        \r\n");
-      out.write("                        <li><label>Habitacion: ");
-      out.print(unaRHabitacion.getUnaHabitacion().getId()+ " " +unaRHabitacion.getUnaHabitacion().getUnTipo() +" " +" "+unaRHabitacion.getFechaEntrada().toString()   );
-      out.write("</label></li>\r\n");
-      out.write("                        ");
-}
-      out.write("\r\n");
-      out.write("                        <hr>\r\n");
-      out.write("                        \r\n");
-      out.write("                        \r\n");
-      out.write("                        ");
+      out.write("                    \r\n");
+      out.write("                          ");
 
                         if(request.getParameter("fechaInicio") == null){
                             request.setAttribute("dias", 0);
@@ -167,15 +150,42 @@ String usuario = session.getAttribute("seccion").toString();
                             request.setAttribute("precio", precio);
                         }
                         
-      out.write("\r\n");
-      out.write("                        \r\n");
-      out.write("                        <li><label>Detalles</label></li>\r\n");
-      out.write("                        <li><label>Dias: ");
+      out.write(" \r\n");
+      out.write("                        <hr>\r\n");
+      out.write("                        <ul class=\"list-group\" style=\"background-color: #ffffff \">\r\n");
+      out.write("                            <li><label>Detalles</label></li>\r\n");
+      out.write("                            <li><label>Dias: ");
       out.print(request.getAttribute("dias"));
       out.write("</label></li>\r\n");
-      out.write("                        <li><label>Precio final: ");
+      out.write("                            <li><label>Precio final: ");
       out.print((Double)request.getAttribute("precio"));
       out.write("</label></li>\r\n");
+      out.write("                        </ul>\r\n");
+      out.write("               </div>\r\n");
+      out.write("                <div class=\"col-sm-4\">\r\n");
+      out.write("                    <ul>\r\n");
+      out.write("                        \r\n");
+      out.write("                        <li><label>Reservas</label></li>\r\n");
+      out.write("                        ");
+String usuario = session.getAttribute("seccion").toString();
+                        int dni = unHotel.buscarPorUsuario(usuario);
+                        for(RHabitacion unaRHabitacion : unHotel.consultarReserva(unHotel.DameElCliente(dni))){
+                            String fechaEntrada = unaRHabitacion.getFechaEntrada().get(Calendar.DATE) +"/"+ unaRHabitacion.getFechaEntrada().get(Calendar.MONTH) +"/"+unaRHabitacion.getFechaEntrada().get(Calendar.YEAR);
+                            String fechaSalida = unaRHabitacion.getFechaSalida().get(Calendar.DATE) +"/"+ unaRHabitacion.getFechaSalida().get(Calendar.MONTH) +"/"+unaRHabitacion.getFechaSalida().get(Calendar.YEAR);
+                        
+      out.write("\r\n");
+      out.write("                        \r\n");
+      out.write("                        <hr>   \r\n");
+      out.write("                        <li><label>Habitacion: ");
+      out.print(unaRHabitacion.getUnaHabitacion().getId()+ " Tipo: " +unaRHabitacion.getUnaHabitacion().getUnTipo() +" Ingreso: "+ fechaEntrada +" Egreso: " + fechaSalida);
+      out.write("</label></li>\r\n");
+      out.write("                        ");
+}
+      out.write("\r\n");
+      out.write("                        <li><label>");
+      out.print(request.getAttribute("habitacion"));
+      out.write("</label></li>\r\n");
+      out.write("                        <hr> \r\n");
       out.write("                        \r\n");
       out.write("                    </ul>\r\n");
       out.write("                </div>\r\n");

@@ -89,12 +89,16 @@
                             String fechaEntrada = unaRHabitacion.getFechaEntrada().get(Calendar.DATE) +"/"+ unaRHabitacion.getFechaEntrada().get(Calendar.MONTH) +"/"+unaRHabitacion.getFechaEntrada().get(Calendar.YEAR);
                             String fechaSalida = unaRHabitacion.getFechaSalida().get(Calendar.DATE) +"/"+ unaRHabitacion.getFechaSalida().get(Calendar.MONTH) +"/"+unaRHabitacion.getFechaSalida().get(Calendar.YEAR);
                         %>
-                         <hr>   
-                        <li><label>Habitacion: <%=unaRHabitacion.getUnaHabitacion().getId()+ " Tipo:" +unaRHabitacion.getUnaHabitacion().getUnTipo() +" Ingreso:"+ fechaEntrada +" Egreso:" + fechaSalida%></label></li>
+                        
+                        <hr>   
+                        <li><label>Habitacion: <%=unaRHabitacion.getUnaHabitacion().getId()+ " Tipo: " +unaRHabitacion.getUnaHabitacion().getUnTipo() +" Ingreso: "+ fechaEntrada +" Egreso: " + fechaSalida%></label></li>
                         <%}%>
                         <hr> 
-                        <li><label><%=request.getAttribute("cliente")%></label></li>
-                        <li><label><%=request.getAttribute("habi")%></label></li>
+                        <%if(request.getAttribute("habitacion")!= null){%>
+                         <li><label>Habitacion: <%=request.getAttribute("habitacion") +" Tipo: "+ request.getAttribute("tipo") +" Ingreso: "+ request.getAttribute("fechaI") +" Egreso: "+ request.getAttribute("fechaE") %></label></li>
+                        <%}%>
+                            
+                         
                     </ul>
                 </div>
             </div>

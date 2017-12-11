@@ -1,16 +1,10 @@
 package Controler;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 
 import Logica.Cliente;
 import Logica.Habitacion;
 import Logica.Hotel;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -23,21 +17,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-/**
- *
- * @author maquinola
- */
 public class ControlerNewReserva extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, ParseException, Exception {
         response.setContentType("text/html;charset=UTF-8");
@@ -59,15 +40,20 @@ public class ControlerNewReserva extends HttpServlet {
             int numero = Integer.parseInt(request.getParameter("habitaciones"));
             precio = unHotel.presupuestar(fecha, fecha2, unHotel.DameLaHabitacion(numero)) + unHotel.DameElServicio(Integer.parseInt(request.getParameter("servicios"))).getPrecio();
             request.setAttribute("precio", precio);
-            if(unHotel.filtrarReservas(fecha, fecha2)!= null){
-                Habitacion unaHabitacion = new Habitacion();
-                unaHabitacion = unHotel.DameLaHabitacion((int)request.getAttribute("habitaciones"));
+            if(unHotel.filtrarReservas(fecha, fecha2).isEmpty() != true){
+                Habitacion unaHabitacion = null;
+                int numeroHabitacion = Integer.parseInt(request.getParameter("habitaciones"));
+                unaHabitacion = unHotel.DameLaHabitacion(numeroHabitacion);
                 HttpSession unaSession = request.getSession();
-                Cliente unCliente = unHotel.DameElCliente(unHotel.buscarPorUsuario(unaSession.getAttribute("seccion").toString()));
+                int dni = unHotel.buscarPorUsuario(unaSession.getAttribute("seccion").toString());
+                Cliente unCliente = unHotel.DameElCliente(dni);
                 unHotel.altaRHabitacion(fecha, fecha2, 1, unaHabitacion, unCliente);
-                request.setAttribute("cliente", unCliente.getApellido());
-                request.setAttribute("habi", unaHabitacion.getId());
                 request.setAttribute("mensaje", "Se ha reservado satisfactoriamente!.");
+                request.setAttribute("fechaI", fecha);
+                request.setAttribute("fechaE", fecha2);
+                request.setAttribute("tipo", unaHabitacion.getUnTipo().getNombre());
+                request.setAttribute("habitacion", numeroHabitacion);
+                request.getRequestDispatcher("/ControlerReserva").include(request, response);
             }else{
                 request.setAttribute("mensaje", "No hay disponibilidad para tal fecha en esa habitacion.");
                 request.getRequestDispatcher("/ControlerReserva").include(request, response);
@@ -78,7 +64,6 @@ public class ControlerNewReserva extends HttpServlet {
             request.setAttribute("precio", precio);
            request.getRequestDispatcher("/ControlerReserva").include(request, response);
         }
-        request.getRequestDispatcher("/ControlerReserva").include(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
