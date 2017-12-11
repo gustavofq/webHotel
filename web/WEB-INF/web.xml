@@ -25,8 +25,8 @@
         <servlet-class>Controler.ControlerPresupuestar</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>hiola</servlet-name>
-        <servlet-class>hiola</servlet-class>
+        <servlet-name>ControlerNewReserva</servlet-name>
+        <servlet-class>Controler.ControlerNewReserva</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ControlerLogin</servlet-name>
@@ -53,8 +53,8 @@
         <url-pattern>/ControlerPresupuestar</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>hiola</servlet-name>
-        <url-pattern>/hiola</url-pattern>
+        <servlet-name>ControlerNewReserva</servlet-name>
+        <url-pattern>/ControlerNewReserva</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -1,3 +1,4 @@
+<%@page import="Logica.RHabitacion"%>
 <%@page import="Logica.Servicio"%>
 <%@page import="java.text.DateFormat"%>
 <%@page import="java.util.Calendar"%>
@@ -35,7 +36,7 @@
                 <div class="col-sm-4">
                 </div>
                 <div class="col-sm-4">
-                    <form id="ffecha" action="ControlerPresupuestar">
+                    <form id="ffecha" action="ControlerNewReserva">
                         <div class="form-group">
                             <label for="text">Fecha Entrada</label>
                             <input type="date" name="fechaInicio" class="form-control"/>
@@ -61,10 +62,8 @@
                         </div>
                         <input type="submit" />
                     </form>
-               </div>
-                <div class="col-sm-4">
-                    <ul>
-                        <%
+                    
+                          <%
                         if(request.getParameter("fechaInicio") == null){
                             request.setAttribute("dias", 0);
                         }
@@ -72,11 +71,30 @@
                         if(request.getParameter("fechaFinal") == null){
                             request.setAttribute("precio", precio);
                         }
+                        %> 
+                        <hr>
+                        <ul class="list-group" style="background-color: #ffffff ">
+                            <li><label>Detalles</label></li>
+                            <li><label>Dias: <%=request.getAttribute("dias")%></label></li>
+                            <li><label>Precio final: <%=(Double)request.getAttribute("precio")%></label></li>
+                        </ul>
+               </div>
+                <div class="col-sm-4">
+                    <ul>
                         
+                        <li><label>Reservas</label></li>
+                        <%String usuario = session.getAttribute("seccion").toString();
+                        int dni = unHotel.buscarPorUsuario(usuario);
+                        for(RHabitacion unaRHabitacion : unHotel.consultarReserva(unHotel.DameElCliente(dni))){
+                            String fechaEntrada = unaRHabitacion.getFechaEntrada().get(Calendar.DATE) +"/"+ unaRHabitacion.getFechaEntrada().get(Calendar.MONTH) +"/"+unaRHabitacion.getFechaEntrada().get(Calendar.YEAR);
+                            String fechaSalida = unaRHabitacion.getFechaSalida().get(Calendar.DATE) +"/"+ unaRHabitacion.getFechaSalida().get(Calendar.MONTH) +"/"+unaRHabitacion.getFechaSalida().get(Calendar.YEAR);
                         %>
-                        <li><label>Detalles</label></li>
-                        <li><label>Dias: <%=request.getAttribute("dias")%></label></li>
-                        <li><label >Precio final: <%=(Double)request.getAttribute("precio")%></label></li>
+                         <hr>   
+                        <li><label>Habitacion: <%=unaRHabitacion.getUnaHabitacion().getId()+ " Tipo:" +unaRHabitacion.getUnaHabitacion().getUnTipo() +" Ingreso:"+ fechaEntrada +" Egreso:" + fechaSalida%></label></li>
+                        <%}%>
+                        <hr> 
+                        <li><label><%=request.getAttribute("cliente")%></label></li>
+                        <li><label><%=request.getAttribute("habi")%></label></li>
                     </ul>
                 </div>
             </div>

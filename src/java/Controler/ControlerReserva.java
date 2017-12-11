@@ -18,7 +18,9 @@ public class ControlerReserva extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException, ParseException {
         response.setContentType("text/html;charset=UTF-8");
-         Hotel unHotel = new Hotel();
+        Hotel unHotel = new Hotel();
+        HttpSession unaSession = request.getSession();
+        String user = unaSession.getAttribute("seccion").toString();
         request.getRequestDispatcher("Reserva.jsp").forward(request, response);
     }
 

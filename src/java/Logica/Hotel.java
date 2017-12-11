@@ -781,6 +781,15 @@ public class Hotel {
         return disponibles;
     }
     
+    public List<RHabitacion> consultarReserva(Cliente unCliente){
+        List<RHabitacion> reservas = new ArrayList<>();
+        for(RHabitacion unaRHabitacion : this.misRHabitaciones){
+            if(unaRHabitacion.getUnCliente().getDni() == unCliente.getDni()){
+                reservas.add(unaRHabitacion);
+            }
+        }
+        return reservas;
+    }
     
     //R MESAS
     
