@@ -94,8 +94,14 @@
                         <li><label>Habitacion: <%=unaRHabitacion.getUnaHabitacion().getId()+ " Tipo: " +unaRHabitacion.getUnaHabitacion().getUnTipo() +" Ingreso: "+ fechaEntrada +" Egreso: " + fechaSalida%></label></li>
                         <%}%>
                         <hr> 
-                        <%if(request.getAttribute("habitacion")!= null){%>
-                         <li><label>Habitacion: <%=request.getAttribute("habitacion") +" Tipo: "+ request.getAttribute("tipo") +" Ingreso: "+ request.getAttribute("fechaI") +" Egreso: "+ request.getAttribute("fechaE") %></label></li>
+                        <%if(request.getAttribute("habitacion")!= null){
+                        Calendar calendarInicio = (Calendar) request.getAttribute("fechaI");
+                        Calendar calendarfin = (Calendar) request.getAttribute("fechaI");
+                        String fechaI = calendarInicio.get(Calendar.DATE) +"/"+ calendarInicio.get(Calendar.MONTH) +"/"+calendarInicio.get(Calendar.YEAR);
+                        String fechaE = calendarfin.get(Calendar.DATE) +"/"+ calendarfin.get(Calendar.MONTH) +"/"+calendarfin.get(Calendar.YEAR);
+
+                        %>
+                         <li><label>Habitacion: <%=request.getAttribute("habitacion") +" Tipo: "+ request.getAttribute("tipo") +" Ingreso: "+ fechaI +" Egreso: "+ fechaE %></label></li>
                         <%}%>
                             
                          
